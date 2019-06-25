@@ -15,7 +15,7 @@ public class Parser {
         this.lexes = lexes;
     }
 
-    public int recognized; // колличество распознаных лексем
+    public int recognized; // колличество распознаных лексем!
 
     public int size (){
         return lexes.size();
