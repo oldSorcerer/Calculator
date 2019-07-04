@@ -28,4 +28,36 @@ class ParserTest {
     void intPlusInt(){
         check("12 + 5");
     }
+
+    @Test
+    void leftBrackets()
+    {
+        check("(2 + 3) * 5.7");
+    }
+
+    @Test
+    void leftMultiply()
+    {
+        check("2 * 5.7 + 3");
+    }
+
+
+    @Test
+    void rightBrackets()
+    {
+        check("2 * (5.7 + 3)");
+    }
+
+    @Test
+    void doubleBrackets()
+    {
+        check("2 * (2.5 + 9) / (5.7 - 8)");
+    }
+    @Test
+    void doubleBrackets2()
+    {
+        Parser p = new Parser(Lexer.run("2 * ((2.5 + 9)) / (((5.7 - 8)))"));
+
+        assertEquals("2 * (2.5 + 9) / (5.7 - 8)", p.parse().toString());
+    }
 }

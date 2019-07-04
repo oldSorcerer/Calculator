@@ -1,5 +1,6 @@
 package calculator.parser;
 
+import calculator.dom.Expression;
 import calculator.lexer.LexType;
 
 public class BracketSequence extends Sequence {
@@ -12,6 +13,6 @@ public class BracketSequence extends Sequence {
 
     @Override
     protected Object collect(Object[] results) {
-        return results[1];
+        return new ExpressionBrackets((Expression)results[1]);
     }
 }

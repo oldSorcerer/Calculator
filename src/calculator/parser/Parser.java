@@ -1,11 +1,9 @@
 package calculator.parser;
 
 import calculator.dom.Expression;
-import calculator.lexer.Lex;
-import calculator.lexer.LexType;
+import calculator.lexer.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Parser {
 
@@ -36,6 +34,6 @@ public class Parser {
     public Expression parse (){
         Alternative root = new RootAlternative(false);
 
-        return  (Expression)root.apply(this);
+        return  ((Expression)root.apply(this)).accept(new ExpressionRebuildVisitor());
     }
 }
