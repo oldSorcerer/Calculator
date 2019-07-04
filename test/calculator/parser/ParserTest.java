@@ -23,4 +23,9 @@ class ParserTest {
     void doubleValue(){
         check("18.45");
     }
+
+    @Test
+    void intPlusInt(){
+        check("12 + 5");
+    }
 }

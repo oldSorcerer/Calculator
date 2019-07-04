@@ -8,5 +8,4 @@ public abstract class Expression {
     public String toString(){
         return this.accept(new StringExpressionVisitor());
     }
-
 }

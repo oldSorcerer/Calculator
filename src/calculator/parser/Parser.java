@@ -2,7 +2,9 @@ package calculator.parser;
 
 import calculator.dom.Expression;
 import calculator.lexer.Lex;
+import calculator.lexer.LexType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Parser {
@@ -12,7 +14,13 @@ public class Parser {
     public Parser (List<Lex> lexes){
         if (lexes == null)
             throw new IllegalArgumentException("Lexes cannot be Null!");
-        this.lexes = lexes;
+
+        this.lexes = new ArrayList<>();
+
+        for (Lex lex : lexes){
+            if (lex.getType() != LexType.Space)
+                this.lexes.add(lex);
+        }
     }
 
     public int recognized; // колличество распознаных лексем!
@@ -26,9 +34,7 @@ public class Parser {
     }
 
     public Expression parse (){
-        Alternative root = new Alternative();
-        root.getAlternatives().add(new DoubleSequence());
-        root.getAlternatives().add(new IntegerTerminal());
+        Alternative root = new RootAlternative(false);
 
         return  (Expression)root.apply(this);
     }

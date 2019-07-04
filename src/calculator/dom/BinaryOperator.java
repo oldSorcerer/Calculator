@@ -44,6 +44,4 @@ public enum BinaryOperator {
     public Double calculate ( Double x, Double y){
         return calc.apply(x,y);
     }
-
-
 }

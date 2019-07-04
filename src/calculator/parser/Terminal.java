@@ -12,6 +12,8 @@ public class Terminal extends ParseRule{
 
     @Override
     protected Object applySpecial(Parser p) {
+        if (p.recognized >= p.size())
+            return null;
         return p.get(p.recognized).getType()==lexType ? p.get(p.recognized++): null;
     }
 }

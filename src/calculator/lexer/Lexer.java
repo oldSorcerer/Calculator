@@ -2,7 +2,7 @@ package calculator.lexer;
 
 import java.util.*;
 
-import calculator.dom.BinaryOperator;
+import calculator.dom.*;
 
 public class Lexer {
 

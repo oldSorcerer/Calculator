@@ -4,6 +4,7 @@ import calculator.dom.NumberExpression;
 import calculator.lexer.*;
 
 public class IntegerTerminal extends Terminal {
+
     public IntegerTerminal() {
         super(LexType.Digits);
     }

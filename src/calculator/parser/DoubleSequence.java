@@ -1,8 +1,7 @@
 package calculator.parser;
 
 import calculator.dom.NumberExpression;
-import calculator.lexer.Lex;
-import calculator.lexer.LexType;
+import calculator.lexer.*;
 
 public class DoubleSequence extends Sequence {
     public DoubleSequence() {

@@ -8,7 +8,6 @@ public class CalculateExpressionVisitor implements ExpressionVisitor <Double>{
         if (e.getLeft() == null || e.getOperator() == null || e.getRight() == null)
             return null;
         return e.getOperator().calculate( e.getLeft().accept(this), e.getRight().accept(this) ) ;
-
     }
 
     @Override
