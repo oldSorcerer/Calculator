@@ -9,9 +9,12 @@ class ParserTest {
 
     void check(String text)
     {
-        Parser p = new Parser(Lexer.run(text));
+        try {
+            Parser p = new Parser(Lexer.run(text));
 
-        assertEquals(text, p.parse().toString());
+            assertEquals(text, p.parse().toString());
+        }
+        catch (ParserException ex){    }
     }
 
     @Test
@@ -54,7 +57,7 @@ class ParserTest {
         check("2 * (2.5 + 9) / (5.7 - 8)");
     }
     @Test
-    void doubleBrackets2()
+    void doubleBrackets2() throws ParserException
     {
         Parser p = new Parser(Lexer.run("2 * ((2.5 + 9)) / (((5.7 - 8)))"));
 

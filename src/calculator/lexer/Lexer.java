@@ -108,13 +108,16 @@ public class Lexer {
     public static List<Lex> run(String text){
         List<Lex> lexes = new ArrayList<>();
 
+        int position = 0;
+
         while (text.length() > 0){
             for (LexRule rule : rules){
                 int length = rule.getSymbolCount(text);
 
                 if (length > 0){
-                    lexes.add(new Lex(text.substring(0, length), rule.getType()));
+                    lexes.add(new Lex(text.substring(0, length), rule.getType(), position));
                     text = text.substring(length);
+                    position += length;
                     break;
                 }
             }

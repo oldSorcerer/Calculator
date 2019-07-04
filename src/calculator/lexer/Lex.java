@@ -4,10 +4,12 @@ public class Lex {
 
     private String text;
     private LexType type;
+    private int position;
 
-    public Lex(String text, LexType type) {
+    public Lex(String text, LexType type, int position) {
         this.text = text;
         this.type = type;
+        this.position = position;
     }
 
     public String getText() {
@@ -25,4 +27,8 @@ public class Lex {
     public void setType(LexType type) {
         this.type = type;
     }*/
+
+    public int getPosition(){
+        return position;
+    }
 }
