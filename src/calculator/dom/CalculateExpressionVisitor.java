@@ -26,6 +26,15 @@ public class CalculateExpressionVisitor implements ExpressionVisitor <Double>{
         return x;
     }
 
+    @Override
+    public Double visit(FunctionExpression e) {
+        double x[] = new double[e.getParameters().size()];
+        for (int i = 0; i< x.length; i++)
+            x[i] = e.getParameters().get(i).accept(this);
+
+        return e.getType().calculate(x);
+    }
+
     public double getX() {
         return x;
     }

@@ -1,5 +1,7 @@
 package calculator.dom;
 
+import java.util.ArrayList;
+
 public class StringExpressionVisitor implements ExpressionVisitor <String> {
     @Override
     public String visit(BinaryExpression e) {
@@ -43,5 +45,16 @@ public class StringExpressionVisitor implements ExpressionVisitor <String> {
     @Override
     public String visit(XExpression e) {
         return "x";
+    }
+
+    @Override
+    public String visit(FunctionExpression e) {
+
+        ArrayList<String> parameters = new ArrayList<>(e.getParameters().size());
+
+        for (Expression p: e.getParameters())
+            parameters.add(p.accept(this));
+        return e.getType().toString().toLowerCase() + "(" + String.join(", ", parameters) + ")" ;
+
     }
 }

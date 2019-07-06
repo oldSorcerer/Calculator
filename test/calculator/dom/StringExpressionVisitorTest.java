@@ -119,4 +119,13 @@ class StringExpressionVisitorTest {
         double x = 10;
         assertEquals("x - (5 + 3)", e.toString());
     }
+
+    @Test
+    void Fun(){
+        FunctionExpression e = new FunctionExpression();
+        e.setType(FunctionType.Log);
+        e.getParameters().add(new NumberExpression(25));
+        e.getParameters().add(new NumberExpression(5));
+        assertEquals("log(25, 5)", e.toString());
+    }
 }

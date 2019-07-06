@@ -88,5 +88,13 @@ class CalculateExpressionVisitorTest {
         assertEquals( x - (5 + 3),  e.accept(new CalculateExpressionVisitor(x)));
     }
 
+    @Test
+    void Fun(){
+        FunctionExpression e = new FunctionExpression();
+        e.setType(FunctionType.Log);
+        e.getParameters().add(new NumberExpression(125));
+        e.getParameters().add(new NumberExpression(5));
+        assertEquals(3, e.accept(new CalculateExpressionVisitor(0)).intValue());
+    }
 
 }
