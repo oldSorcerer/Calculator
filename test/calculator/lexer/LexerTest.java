@@ -77,4 +77,17 @@ class LexerTest {
         assertEquals(LexType.CloseBracket, lexes.get(11).getType());
 
     }
+    @Test
+    void X(){
+        List<Lex> lexes = Lexer.run ("x * x");
+
+        assertEquals(5, lexes.size());
+        assertEquals(LexType.X, lexes.get(0).getType());
+        assertEquals(LexType.Space, lexes.get(1).getType());
+        assertEquals(LexType.Operator, lexes.get(2).getType());
+        assertEquals(LexType.Space, lexes.get(3).getType());
+        assertEquals(LexType.X, lexes.get(4).getType());
+
+    }
+
 }
