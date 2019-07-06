@@ -92,6 +92,21 @@ public class Lexer {
                     else return 0;
                 }
             },
+
+        new LexRule() {
+            @Override
+            public LexType getType() {
+                return LexType.X;
+            }
+
+            @Override
+            public int getSymbolCount(String text) {
+                if (text.charAt(0) == 'x' || text.charAt(0) == 'X')
+                    return 1;
+                return 0;
+            }
+        },
+
         new LexRule() {
             @Override
             public LexType getType() {

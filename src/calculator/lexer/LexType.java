@@ -7,5 +7,6 @@ public enum LexType {
     Operator,
     OpenBracket,
     CloseBracket,
+    X,
     Error
 }
