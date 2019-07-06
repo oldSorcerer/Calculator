@@ -106,5 +106,17 @@ class StringExpressionVisitorTest {
         assertEquals("10 - (5 + 3)", e.toString());
     }
 
-
+    @Test
+    void X(){
+        BinaryExpression e = new BinaryExpression();
+        BinaryExpression right = new BinaryExpression();
+        e.setRight(right);
+        right.setLeft(new NumberExpression(5));
+        right.setOperator(BinaryOperator.Plus);
+        right.setRight(new NumberExpression(3));
+        e.setOperator(BinaryOperator.Minus);
+        e.setLeft(new XExpression());
+        double x = 10;
+        assertEquals("x - (5 + 3)", e.toString());
+    }
 }

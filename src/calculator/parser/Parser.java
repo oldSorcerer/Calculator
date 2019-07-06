@@ -19,11 +19,16 @@ public class Parser {
         for (Lex lex : lexes){
             if (lex.getType() == LexType.Error)
                 position.add(lex.getPosition());
-                //throw new ParserException(String.format("Неверный символ в выражении %s!", lex.getText()), lex.getPosition());
             if (lex.getType() != LexType.Space)
                 this.lexes.add(lex);
         }
-
+        if (!position.isEmpty()) {
+            int pos2[] = new int[position.size()];
+            int i = 0;
+            for (Integer x : position)
+                pos2[i++] = x;
+            throw new ParserException("Неверный символ в выражении!", pos2);
+        }
     }
 
     public int recognized; // колличество распознаных лексем!
@@ -36,9 +41,19 @@ public class Parser {
         return lexes.get(number);
     }
 
-    public Expression parse (){
+    public Expression parse () throws ParserException {
         Alternative root = new RootAlternative(false);
+        Expression result = (Expression)root.apply(this);
 
-        return  ((Expression)root.apply(this)).accept(new ExpressionRebuildVisitor());
+        if (result == null){
+            throw new ParserException("Failed to parse", new int[0]);
+        }
+
+        if (recognized < size()){
+            throw new ParserException("Failed to parse whole",
+                    new int[] { lexes.get(recognized).getPosition() });
+        }
+
+        return  result.accept(new ExpressionRebuildVisitor());
     }
 }

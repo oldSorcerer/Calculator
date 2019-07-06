@@ -2,6 +2,10 @@ package calculator.dom;
 
 public class CalculateExpressionVisitor implements ExpressionVisitor <Double>{
 
+    public CalculateExpressionVisitor(double x) {
+        this.x = x;
+    }
+
     @Override
     public Double visit(BinaryExpression e) {
 
@@ -13,5 +17,16 @@ public class CalculateExpressionVisitor implements ExpressionVisitor <Double>{
     @Override
     public Double visit(NumberExpression e) {
         return e.getValue().doubleValue();
+    }
+
+    private double x;
+
+    @Override
+    public Double visit(XExpression e) {
+        return x;
+    }
+
+    public double getX() {
+        return x;
     }
 }

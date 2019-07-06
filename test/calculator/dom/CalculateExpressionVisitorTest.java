@@ -17,7 +17,7 @@ class CalculateExpressionVisitorTest {
         e.setOperator(BinaryOperator.Mul);
         e.setRight(new NumberExpression(10));
 
-        assertEquals((5 - 3) * 10, e.accept(new CalculateExpressionVisitor()));
+        assertEquals((5 - 3) * 10, e.accept(new CalculateExpressionVisitor(0)));
     }
 
     @Test
@@ -31,7 +31,7 @@ class CalculateExpressionVisitorTest {
         e.setOperator(BinaryOperator.Minus);
         e.setRight(new NumberExpression(10));
 
-        assertEquals(5 * 3 - 10,  e.accept(new CalculateExpressionVisitor()));
+        assertEquals(5 * 3 - 10,  e.accept(new CalculateExpressionVisitor(0)));
 
     }
 
@@ -45,7 +45,7 @@ class CalculateExpressionVisitorTest {
         right.setRight(new NumberExpression(3));
         e.setOperator(BinaryOperator.Minus);
         e.setLeft(new NumberExpression(10));
-        assertEquals(10 - 5 * 3,  e.accept(new CalculateExpressionVisitor()));
+        assertEquals(10 - 5 * 3,  e.accept(new CalculateExpressionVisitor(0)));
     }
 
     @Test
@@ -58,7 +58,7 @@ class CalculateExpressionVisitorTest {
         right.setRight(new NumberExpression(3));
         e.setOperator(BinaryOperator.Div);
         e.setLeft(new NumberExpression(10));
-        assertEquals(10.0 / (5 * 3), e.accept(new CalculateExpressionVisitor()));
+        assertEquals(10.0 / (5 * 3), e.accept(new CalculateExpressionVisitor(0)));
     }
 
     @Test
@@ -71,9 +71,22 @@ class CalculateExpressionVisitorTest {
         right.setRight(new NumberExpression(3));
         e.setOperator(BinaryOperator.Minus);
         e.setLeft(new NumberExpression(10));
-        assertEquals(10 - (5 + 3),  e.accept(new CalculateExpressionVisitor()));
+        assertEquals(10 - (5 + 3),  e.accept(new CalculateExpressionVisitor(0)));
     }
 
+    @Test
+    void X(){
+        BinaryExpression e = new BinaryExpression();
+        BinaryExpression right = new BinaryExpression();
+        e.setRight(right);
+        right.setLeft(new NumberExpression(5));
+        right.setOperator(BinaryOperator.Plus);
+        right.setRight(new NumberExpression(3));
+        e.setOperator(BinaryOperator.Minus);
+        e.setLeft(new XExpression());
+        double x = 10;
+        assertEquals( x - (5 + 3),  e.accept(new CalculateExpressionVisitor(x)));
+    }
 
 
 }

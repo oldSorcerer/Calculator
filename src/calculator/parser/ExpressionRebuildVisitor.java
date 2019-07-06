@@ -15,4 +15,9 @@ public class ExpressionRebuildVisitor implements ExpressionVisitor <Expression> 
     public Expression visit(NumberExpression e) {
         return e;
     }
+
+    @Override
+    public Expression visit(XExpression e) {
+        return e;
+    }
 }

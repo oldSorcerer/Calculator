@@ -39,4 +39,9 @@ public class StringExpressionVisitor implements ExpressionVisitor <String> {
 
         return e.getValue().toString();
     }
+
+    @Override
+    public String visit(XExpression e) {
+        return "x";
+    }
 }
