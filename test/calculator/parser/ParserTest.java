@@ -63,4 +63,9 @@ class ParserTest {
 
         assertEquals("2 * (2.5 + 9) / (5.7 - 8)", p.parse().toString());
     }
+
+    @Test
+    void X(){
+        check("x * x + 85");
+    }
 }

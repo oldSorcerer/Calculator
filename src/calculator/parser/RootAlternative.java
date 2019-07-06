@@ -9,6 +9,7 @@ public class RootAlternative extends Alternative {
             getAlternatives().add(new BinarySequence(this));
         getAlternatives().add(new DoubleSequence());
         getAlternatives().add(new IntegerTerminal());
+        getAlternatives().add(new XTerminal());
         getAlternatives().add(new BracketSequence(isLeft && root != null ? root : this));
     }
 }
