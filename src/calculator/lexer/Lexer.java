@@ -110,6 +110,35 @@ public class Lexer {
         new LexRule() {
             @Override
             public LexType getType() {
+                return LexType.NameFunc;
+            }
+
+            @Override
+            public int getSymbolCount(String text) {
+                for (FunctionType fun: FunctionType.values())
+                    if (text.startsWith(fun.toString().toLowerCase()))
+                        return fun.toString().length();
+                return 0;
+            }
+        },
+
+        new LexRule() {
+            @Override
+            public LexType getType() {
+                return LexType.Comma;
+            }
+
+            @Override
+            public int getSymbolCount(String text) {
+                if (text.charAt(0) == ',')
+                    return 1;
+                return 0;
+            }
+        },
+
+        new LexRule() {
+            @Override
+            public LexType getType() {
                 return LexType.Error;
             }
 

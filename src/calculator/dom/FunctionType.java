@@ -8,7 +8,8 @@ public enum FunctionType {
     Log (x -> log(x[0]) / log(x[1])),
     Sin (x -> sin(x[0])),
     Cos (x -> cos(x[0])),
-    Exp (x -> exp(x[0]));
+    Exp (x -> exp(x[0])),
+    Abs (x -> abs(x[0]));
 
     private Function <double[], Double> calc;
 

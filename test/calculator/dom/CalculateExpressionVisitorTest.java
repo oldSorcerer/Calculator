@@ -97,4 +97,19 @@ class CalculateExpressionVisitorTest {
         assertEquals(3, e.accept(new CalculateExpressionVisitor(0)).intValue());
     }
 
+    @Test
+    void FunAbs() {
+        BinaryExpression e = new BinaryExpression();
+        e.setLeft(new NumberExpression(2.5));
+        e.setOperator(BinaryOperator.Div);
+        BinaryExpression right = new BinaryExpression();
+        right.setOperator(BinaryOperator.Plus);
+        right.setRight(new NumberExpression(1));
+        FunctionExpression f = new FunctionExpression();
+        f.setType(FunctionType.Abs);
+        f.getParameters().add(new XExpression());
+        right.setLeft(f);
+        e.setRight(right);
+        assertEquals(2.5/4, e.accept(new CalculateExpressionVisitor(-3)));
+    }
 }

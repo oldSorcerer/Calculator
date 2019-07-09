@@ -128,4 +128,21 @@ class StringExpressionVisitorTest {
         e.getParameters().add(new NumberExpression(5));
         assertEquals("log(25, 5)", e.toString());
     }
+    @Test
+    void FunAbs(){
+        BinaryExpression e = new BinaryExpression();
+        e.setLeft(new NumberExpression(2.5));
+        e.setOperator(BinaryOperator.Div);
+        BinaryExpression right = new BinaryExpression();
+        right.setOperator(BinaryOperator.Plus);
+        right.setRight(new NumberExpression(1));
+        FunctionExpression f = new FunctionExpression();
+        f.setType(FunctionType.Abs);
+        f.getParameters().add(new XExpression());
+        right.setLeft(f);
+        e.setRight(right);
+        assertEquals("2.5 / (abs(x) + 1)", e.toString());
+    }
+
+
 }

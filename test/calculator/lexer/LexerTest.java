@@ -87,7 +87,26 @@ class LexerTest {
         assertEquals(LexType.Operator, lexes.get(2).getType());
         assertEquals(LexType.Space, lexes.get(3).getType());
         assertEquals(LexType.X, lexes.get(4).getType());
-
     }
 
+    @Test
+    void Fun(){
+        List<Lex> lexes = Lexer.run("sin(x) + cos(x)");
+
+        assertEquals(11,lexes.size());
+        assertEquals(LexType.NameFunc, lexes.get(0).getType());
+        assertEquals("sin",lexes.get(0).getText());
+        assertEquals(LexType.OpenBracket, lexes.get(1).getType());
+        assertEquals(LexType.X, lexes.get(2).getType());
+        assertEquals(LexType.CloseBracket, lexes.get(3).getType());
+        assertEquals(LexType.Space, lexes.get(4).getType());
+        assertEquals(LexType.Operator, lexes.get(5).getType());
+        assertEquals(LexType.Space, lexes.get(6).getType());
+        assertEquals(LexType.NameFunc, lexes.get(7).getType());
+        assertEquals("cos",lexes.get(7).getText());
+        assertEquals(LexType.OpenBracket, lexes.get(8).getType());
+        assertEquals(LexType.X, lexes.get(9).getType());
+        assertEquals(LexType.CloseBracket, lexes.get(10).getType());
+
+    }
 }

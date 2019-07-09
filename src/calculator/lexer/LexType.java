@@ -8,5 +8,7 @@ public enum LexType {
     OpenBracket,
     CloseBracket,
     X,
+    NameFunc,
+    Comma,
     Error
 }
