@@ -1,6 +1,7 @@
 package calculator.parser;
 
 public abstract class ParseRule {
+
     public final Object apply (Parser p){
         int count = p.recognized;
         Object result = applySpecial(p);

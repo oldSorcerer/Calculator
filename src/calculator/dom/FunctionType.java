@@ -9,7 +9,9 @@ public enum FunctionType {
     Sin (x -> sin(x[0])),
     Cos (x -> cos(x[0])),
     Exp (x -> exp(x[0])),
-    Abs (x -> abs(x[0]));
+    Abs (x -> abs(x[0])),
+    Pi (x -> PI),
+    E (x -> Math.E);
 
     private Function <double[], Double> calc;
 

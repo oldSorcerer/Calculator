@@ -14,7 +14,9 @@ class ParserTest {
 
             assertEquals(text, p.parse().toString());
         }
-        catch (ParserException ex){    }
+        catch (ParserException ex){
+            assertEquals(null, ex);
+        }
     }
 
     @Test
@@ -67,5 +69,16 @@ class ParserTest {
     @Test
     void X(){
         check("x * x + 85");
+    }
+
+    @Test
+    void Fun(){
+        check("sin(x) + log(x + 5, 3.4)");
+    }
+
+    @Test
+    void Pi()
+    {
+        check("pi()");
     }
 }
