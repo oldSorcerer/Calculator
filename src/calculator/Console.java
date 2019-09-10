@@ -6,6 +6,7 @@ import calculator.parser.Parser;
 import calculator.parser.ParserException;
 
 import java.io.*;
+import java.util.Optional;
 
 public class Console {
     public static void main(String[] args) throws IOException {
@@ -20,7 +21,6 @@ public class Console {
                 x = Double.parseDouble(reader.readLine());
             }
             System.out.println(p.parse().accept(new CalculateExpressionVisitor(x)));
-
         }
         catch (ParserException ex){
             System.out.println(ex);

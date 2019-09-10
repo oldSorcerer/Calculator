@@ -6,4 +6,5 @@ public interface ExpressionVisitor<O> {
     O visit(NumberExpression e);
     O visit(XExpression e);
     O visit(FunctionExpression e);
+
 }

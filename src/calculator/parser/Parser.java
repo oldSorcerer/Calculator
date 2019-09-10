@@ -9,7 +9,7 @@ public class Parser {
 
     private List<Lex> lexes;
 
-    public Parser (List<Lex> lexes) throws ParserException{
+    public Parser (List<Lex> lexes) throws ParserException {
         if (lexes == null)
             throw new IllegalArgumentException("Lexes cannot be Null!");
 
