@@ -6,7 +6,6 @@ import calculator.parser.Parser;
 import calculator.parser.ParserException;
 
 import java.io.*;
-import java.util.Optional;
 
 public class Console {
     public static void main(String[] args) throws IOException {
