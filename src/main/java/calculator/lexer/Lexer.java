@@ -2,7 +2,7 @@ package calculator.lexer;
 
 import java.util.*;
 
-import calculator.dom.*;
+import calculator.om.*;
 
 public class Lexer {
 
