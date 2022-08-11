@@ -15,7 +15,7 @@ class ParserTest {
             assertEquals(text, p.parse().toString());
         }
         catch (ParserException ex){
-            assertEquals(null, ex);
+            assertNull(ex);
         }
     }
 
