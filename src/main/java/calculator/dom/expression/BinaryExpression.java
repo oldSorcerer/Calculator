@@ -1,4 +1,7 @@
-package calculator.dom;
+package calculator.dom.expression;
+
+import calculator.dom.BinaryOperator;
+import calculator.dom.expressionvisitor.ExpressionVisitor;
 
 public class BinaryExpression extends Expression {
 

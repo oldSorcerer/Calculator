@@ -1,14 +1,18 @@
-package calculator.parser;
+package calculator.parser.sequence;
 
-import calculator.dom.Expression;
-import calculator.dom.FunctionExpression;
+import calculator.dom.expression.Expression;
+import calculator.dom.expression.FunctionExpression;
 import calculator.dom.FunctionType;
 import calculator.lexer.Lex;
 import calculator.lexer.LexType;
+import calculator.parser.terminal.Terminal;
+import calculator.parser.alternative.Alternative;
+import calculator.parser.alternative.ParametersAlternative;
+import calculator.parser.alternative.RootAlternative;
 
 import java.util.LinkedList;
 
-public class FunctionSequence extends Sequence{
+public class FunctionSequence extends Sequence {
 
     public FunctionSequence(RootAlternative root){
         getMembers().add(new Terminal(LexType.NameFunc));

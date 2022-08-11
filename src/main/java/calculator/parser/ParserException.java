@@ -2,13 +2,13 @@ package calculator.parser;
 
 public class ParserException  extends Exception {
 
-    private int position[];
+    private int[] position;
 
     public int [] getPosition() {
         return position;
     }
 
-    public ParserException (String text, int position[]){
+    public ParserException (String text, int[] position){
         super(text);
         this.position = position;
     }

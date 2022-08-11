@@ -1,7 +1,10 @@
 package calculator.parser;
 
-import calculator.dom.Expression;
+import calculator.dom.expression.Expression;
+import calculator.dom.expressionvisitor.ExpressionRebuildVisitor;
 import calculator.lexer.*;
+import calculator.parser.alternative.Alternative;
+import calculator.parser.alternative.RootAlternative;
 
 import java.util.*;
 
@@ -23,7 +26,7 @@ public class Parser {
                 this.lexes.add(lex);
         }
         if (!position.isEmpty()) {
-            int pos2[] = new int[position.size()];
+            int[] pos2 = new int[position.size()];
             int i = 0;
             for (Integer x : position)
                 pos2[i++] = x;

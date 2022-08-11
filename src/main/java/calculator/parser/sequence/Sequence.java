@@ -1,4 +1,7 @@
-package calculator.parser;
+package calculator.parser.sequence;
+
+import calculator.parser.ParseRule;
+import calculator.parser.Parser;
 
 import java.util.ArrayList;
 
@@ -13,7 +16,7 @@ public abstract class Sequence extends ParseRule {
     @Override
     protected Object applySpecial(Parser p){
 
-        Object results[] = new Object[members.size()];
+        Object[] results = new Object[members.size()];
         for (int i = 0; i < results.length; i++ ) {
             results [i] = members.get(i).apply(p);
             if (results[i] == null)
@@ -22,5 +25,5 @@ public abstract class Sequence extends ParseRule {
        return collect(results);
     }
 
-    protected abstract Object collect (Object results[]);
+    protected abstract Object collect (Object[] results);
 }

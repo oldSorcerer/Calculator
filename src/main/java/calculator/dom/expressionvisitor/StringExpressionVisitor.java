@@ -1,8 +1,11 @@
-package calculator.dom;
+package calculator.dom.expressionvisitor;
+
+import calculator.dom.expression.*;
+import calculator.dom.expressionvisitor.ExpressionVisitor;
 
 import java.util.ArrayList;
 
-public class StringExpressionVisitor implements ExpressionVisitor <String> {
+public class StringExpressionVisitor implements ExpressionVisitor<String> {
     @Override
     public String visit(BinaryExpression e) {
 

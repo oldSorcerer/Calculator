@@ -1,8 +1,9 @@
-package calculator.parser;
+package calculator.dom.expressionvisitor;
 
-import calculator.dom.*;
+import calculator.dom.expression.*;
+import calculator.dom.expressionvisitor.ExpressionVisitor;
 
-public class ExpressionRebuildVisitor implements ExpressionVisitor <Expression> {
+public class ExpressionRebuildVisitor implements ExpressionVisitor<Expression> {
 
     @Override
     public Expression visit(BinaryExpression e) {

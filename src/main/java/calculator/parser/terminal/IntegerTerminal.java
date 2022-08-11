@@ -1,7 +1,8 @@
-package calculator.parser;
+package calculator.parser.terminal;
 
-import calculator.dom.NumberExpression;
+import calculator.dom.expression.NumberExpression;
 import calculator.lexer.*;
+import calculator.parser.Parser;
 
 public class IntegerTerminal extends Terminal {
 

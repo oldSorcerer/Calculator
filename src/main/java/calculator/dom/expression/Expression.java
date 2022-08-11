@@ -1,4 +1,7 @@
-package calculator.dom;
+package calculator.dom.expression;
+
+import calculator.dom.expressionvisitor.ExpressionVisitor;
+import calculator.dom.expressionvisitor.StringExpressionVisitor;
 
 public abstract class Expression {
 

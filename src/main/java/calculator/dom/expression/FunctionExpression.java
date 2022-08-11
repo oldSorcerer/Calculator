@@ -1,4 +1,7 @@
-package calculator.dom;
+package calculator.dom.expression;
+
+import calculator.dom.expressionvisitor.ExpressionVisitor;
+import calculator.dom.FunctionType;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,6 @@
-package calculator.dom;
+package calculator.dom.expression;
+
+import calculator.dom.expressionvisitor.ExpressionVisitor;
 
 public class NumberExpression extends Expression {
 

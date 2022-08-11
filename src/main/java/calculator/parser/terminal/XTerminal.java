@@ -1,7 +1,8 @@
-package calculator.parser;
+package calculator.parser.terminal;
 
-import calculator.dom.XExpression;
+import calculator.dom.expression.XExpression;
 import calculator.lexer.LexType;
+import calculator.parser.Parser;
 
 public class XTerminal extends Terminal {
 

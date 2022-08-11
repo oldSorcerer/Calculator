@@ -1,11 +1,14 @@
-package calculator.parser;
+package calculator.parser.sequence;
 
-import calculator.dom.Expression;
+import calculator.dom.expression.Expression;
 import calculator.lexer.LexType;
+import calculator.parser.terminal.Terminal;
+import calculator.parser.alternative.ParametersAlternative;
+import calculator.parser.alternative.RootAlternative;
 
 import java.util.LinkedList;
 
-public class ParametersSequence extends Sequence{
+public class ParametersSequence extends Sequence {
 
     public ParametersSequence (RootAlternative root, ParametersAlternative tail){
         getMembers().add(root);

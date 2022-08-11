@@ -1,6 +1,11 @@
-package calculator.dom;
+package calculator.dom.expressionvisitor;
 
-public class CalculateExpressionVisitor implements ExpressionVisitor <Double>{
+import calculator.dom.expression.BinaryExpression;
+import calculator.dom.expression.FunctionExpression;
+import calculator.dom.expression.NumberExpression;
+import calculator.dom.expression.XExpression;
+
+public class CalculateExpressionVisitor implements ExpressionVisitor<Double> {
 
     public CalculateExpressionVisitor(double x) {
         this.x = x;

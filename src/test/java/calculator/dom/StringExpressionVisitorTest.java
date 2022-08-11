@@ -1,5 +1,9 @@
 package calculator.dom;
 
+import calculator.dom.expression.BinaryExpression;
+import calculator.dom.expression.FunctionExpression;
+import calculator.dom.expression.NumberExpression;
+import calculator.dom.expression.XExpression;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

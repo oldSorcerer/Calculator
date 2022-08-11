@@ -1,4 +1,7 @@
-package calculator.parser;
+package calculator.parser.alternative;
+
+import calculator.parser.ParseRule;
+import calculator.parser.Parser;
 
 import java.util.LinkedList;
 

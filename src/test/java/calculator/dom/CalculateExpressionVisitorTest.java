@@ -1,5 +1,10 @@
 package calculator.dom;
 
+import calculator.dom.expression.BinaryExpression;
+import calculator.dom.expression.FunctionExpression;
+import calculator.dom.expression.NumberExpression;
+import calculator.dom.expression.XExpression;
+import calculator.dom.expressionvisitor.CalculateExpressionVisitor;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

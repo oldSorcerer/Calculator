@@ -1,9 +1,9 @@
-package calculator.parser;
+package calculator.dom.expression;
 
-import calculator.dom.Expression;
-import calculator.dom.ExpressionVisitor;
+import calculator.dom.expression.Expression;
+import calculator.dom.expressionvisitor.ExpressionVisitor;
 
-class ExpressionBrackets extends Expression {
+public class ExpressionBrackets extends Expression {
 
     private Expression expression;
 

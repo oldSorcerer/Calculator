@@ -1,8 +1,10 @@
-package calculator.parser;
+package calculator.parser.terminal;
 
 import calculator.lexer.LexType;
+import calculator.parser.ParseRule;
+import calculator.parser.Parser;
 
-public class Terminal extends ParseRule{
+public class Terminal extends ParseRule {
 
     private LexType lexType;
 

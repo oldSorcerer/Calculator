@@ -19,7 +19,7 @@ public enum FunctionType {
         calc = function;
     }
 
-    public Double calculate ( double x[]){
+    public Double calculate (double[] x){
         return calc.apply(x);
     }
 }
