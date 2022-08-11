@@ -1,7 +1,7 @@
 package calculator.dom.expression;
 
 import calculator.dom.BinaryOperator;
-import calculator.dom.expressionvisitor.ExpressionVisitor;
+import calculator.dom.expression.visitor.ExpressionVisitor;
 import lombok.Getter;
 import lombok.Setter;
 

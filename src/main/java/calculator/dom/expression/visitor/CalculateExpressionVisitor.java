@@ -1,4 +1,4 @@
-package calculator.dom.expressionvisitor;
+package calculator.dom.expression.visitor;
 
 import calculator.dom.expression.*;
 import lombok.AllArgsConstructor;

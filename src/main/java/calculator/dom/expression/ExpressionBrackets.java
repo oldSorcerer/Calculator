@@ -1,6 +1,6 @@
 package calculator.dom.expression;
 
-import calculator.dom.expressionvisitor.ExpressionVisitor;
+import calculator.dom.expression.visitor.ExpressionVisitor;
 import lombok.Getter;
 
 @Getter
