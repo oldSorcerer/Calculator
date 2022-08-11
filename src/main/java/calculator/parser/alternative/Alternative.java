@@ -2,16 +2,13 @@ package calculator.parser.alternative;
 
 import calculator.parser.ParseRule;
 import calculator.parser.Parser;
+import lombok.Getter;
 
 import java.util.LinkedList;
-
+@Getter
 public class Alternative extends ParseRule {
 
     private final LinkedList<ParseRule> alternatives = new LinkedList<>();
-
-    public LinkedList<ParseRule> getAlternatives() {
-        return alternatives;
-    }
 
     @Override
     protected Object applySpecial(Parser p) {

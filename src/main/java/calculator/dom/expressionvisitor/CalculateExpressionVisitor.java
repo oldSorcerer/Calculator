@@ -12,7 +12,6 @@ public class CalculateExpressionVisitor implements ExpressionVisitor<Double> {
 
     @Override
     public Double visit(BinaryExpression binaryExpression) {
-
         if (binaryExpression.getLeft() == null || binaryExpression.getOperator() == null || binaryExpression.getRight() == null)
             return null;
         return binaryExpression.getOperator().calculate(binaryExpression.getLeft().accept(this), binaryExpression.getRight().accept(this));
