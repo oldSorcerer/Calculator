@@ -1,6 +1,6 @@
 package calculator;
 
-import calculator.dom.expression.visitor.CalculateExpressionVisitor;
+import calculator.expression.visitor.CalculateExpressionVisitor;
 import calculator.lexer.Lexer;
 import calculator.parser.Parser;
 import calculator.parser.ParserException;
