@@ -1,7 +1,6 @@
 package calculator.dom.expressionvisitor;
 
 import calculator.dom.expression.*;
-import calculator.dom.expressionvisitor.ExpressionVisitor;
 
 public class ExpressionRebuildVisitor implements ExpressionVisitor<Expression> {
 
@@ -23,9 +22,8 @@ public class ExpressionRebuildVisitor implements ExpressionVisitor<Expression> {
     }
 
     @Override
-    public Expression visit(FunctionExpression e) {
-        for (int i = 0; i < e.getParameters().size(); i++ )
-            e.getParameters().set(i, e.getParameters().get(i).accept(this));
-        return e;
+    public Expression visit(FunctionExpression functionExpression) {
+        functionExpression.getParameters().replaceAll(expression -> expression.accept(this));
+        return functionExpression;
     }
 }
