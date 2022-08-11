@@ -1,31 +1,29 @@
 package calculator.dom.expressionvisitor;
 
 import calculator.dom.expression.*;
-import calculator.dom.expressionvisitor.ExpressionVisitor;
 
 public class ExpressionRebuildVisitor implements ExpressionVisitor<Expression> {
 
     @Override
-    public Expression visit(BinaryExpression e) {
-        e.setLeft(e.getLeft().accept(this));
-        e.setRight(e.getRight().accept(this));
-        return e;
+    public Expression visit(BinaryExpression binaryExpression) {
+        binaryExpression.setLeft(binaryExpression.getLeft().accept(this));
+        binaryExpression.setRight(binaryExpression.getRight().accept(this));
+        return binaryExpression;
     }
 
     @Override
-    public Expression visit(NumberExpression e) {
-        return e;
+    public Expression visit(NumberExpression numberExpression) {
+        return numberExpression;
     }
 
     @Override
-    public Expression visit(XExpression e) {
-        return e;
+    public Expression visit(XExpression xExpression) {
+        return xExpression;
     }
 
     @Override
-    public Expression visit(FunctionExpression e) {
-        for (int i = 0; i < e.getParameters().size(); i++)
-            e.getParameters().set(i, e.getParameters().get(i).accept(this));
-        return e;
+    public Expression visit(FunctionExpression functionExpression) {
+        functionExpression.getParameters().replaceAll(expression -> expression.accept(this));
+        return functionExpression;
     }
 }

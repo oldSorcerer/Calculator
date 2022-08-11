@@ -2,11 +2,11 @@ package calculator.parser;
 
 public abstract class ParseRule {
 
-    public final Object apply(Parser parser) {
-        int count = parser.recognized;
-        Object result = applySpecial(parser);
+    public final Object apply(Parser p) {
+        int count = p.recognized;
+        Object result = applySpecial(p);
         if (result == null)
-            parser.recognized = count;
+            p.recognized = count;
         return result;
     }
 

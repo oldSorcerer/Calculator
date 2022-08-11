@@ -5,8 +5,6 @@ import calculator.dom.expressionvisitor.ExpressionRebuildVisitor;
 import calculator.lexer.*;
 import calculator.parser.alternative.Alternative;
 import calculator.parser.alternative.RootAlternative;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.*;
 
@@ -14,7 +12,7 @@ public class Parser {
 
     public int recognized; // колличество распознаных лексем!
 
-    private List<Lex> lexes;
+    private final List<Lex> lexes;
 
     public Parser(List<Lex> lexes) throws ParserException {
         if (lexes == null)
@@ -37,7 +35,6 @@ public class Parser {
             throw new ParserException("Неверный символ в выражении!", pos2);
         }
     }
-
 
     public int size() {
         return lexes.size();

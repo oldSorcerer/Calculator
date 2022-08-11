@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public abstract class Sequence extends ParseRule {
 
-    private ArrayList<ParseRule> members = new ArrayList<>(); // звенья последовательности
+    private final ArrayList<ParseRule> members = new ArrayList<>(); // звенья последовательности
 
     public ArrayList<ParseRule> getMembers() {
         return members;

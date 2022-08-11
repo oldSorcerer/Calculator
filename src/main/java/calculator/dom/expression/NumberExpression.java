@@ -1,10 +1,12 @@
 package calculator.dom.expression;
 
 import calculator.dom.expressionvisitor.ExpressionVisitor;
+import lombok.Getter;
 
+@Getter
 public class NumberExpression extends Expression {
 
-    private Number value;
+    private final Number value;
 
     public NumberExpression(Number value) {
         if (value == null)
@@ -13,11 +15,7 @@ public class NumberExpression extends Expression {
     }
 
     @Override
-    public <O> O accept(ExpressionVisitor<O> visitor) {
+    public <T> T accept(ExpressionVisitor<T> visitor) {
         return visitor.visit(this);
-    }
-
-    public Number getValue() {
-        return value;
     }
 }

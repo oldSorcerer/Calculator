@@ -8,7 +8,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class CalculateExpressionVisitor implements ExpressionVisitor<Double> {
 
-    private final double x;
+    private double x;
 
     @Override
     public Double visit(BinaryExpression binaryExpression) {
@@ -24,7 +24,7 @@ public class CalculateExpressionVisitor implements ExpressionVisitor<Double> {
     }
 
     @Override
-    public Double visit(XExpression e) {
+    public Double visit(XExpression xExpression) {
         return x;
     }
 

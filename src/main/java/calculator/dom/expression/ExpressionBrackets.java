@@ -1,15 +1,12 @@
 package calculator.dom.expression;
 
-import calculator.dom.expression.Expression;
 import calculator.dom.expressionvisitor.ExpressionVisitor;
+import lombok.Getter;
 
+@Getter
 public class ExpressionBrackets extends Expression {
 
-    private Expression expression;
-
-    public Expression getExpression() {
-        return expression;
-    }
+    private final Expression expression;
 
     public ExpressionBrackets(Expression expression) {
         if (expression == null)
@@ -18,8 +15,7 @@ public class ExpressionBrackets extends Expression {
     }
 
     @Override
-    public <O> O accept(ExpressionVisitor<O> visitor) {
+    public <T> T accept(ExpressionVisitor<T> visitor) {
         return expression.accept(visitor);
     }
-
 }

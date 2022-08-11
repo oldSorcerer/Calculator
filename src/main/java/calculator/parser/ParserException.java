@@ -11,5 +11,4 @@ public class ParserException extends Exception {
         super(text);
         this.position = position;
     }
-
 }

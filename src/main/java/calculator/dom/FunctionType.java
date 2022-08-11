@@ -14,7 +14,7 @@ public enum FunctionType {
     Pi(x -> PI),
     E(x -> Math.E);
 
-    private Function<double[], Double> calc;
+    private final Function<double[], Double> calc;
 
     FunctionType(Function<double[], Double> function) {
         calc = function;
