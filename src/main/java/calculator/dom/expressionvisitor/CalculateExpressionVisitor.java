@@ -16,7 +16,7 @@ public class CalculateExpressionVisitor implements ExpressionVisitor<Double> {
 
         if (e.getLeft() == null || e.getOperator() == null || e.getRight() == null)
             return null;
-        return e.getOperator().calculate( e.getLeft().accept(this), e.getRight().accept(this) ) ;
+        return e.getOperator().calculate(e.getLeft().accept(this), e.getRight().accept(this));
     }
 
     @Override
@@ -34,7 +34,7 @@ public class CalculateExpressionVisitor implements ExpressionVisitor<Double> {
     @Override
     public Double visit(FunctionExpression e) {
         double x[] = new double[e.getParameters().size()];
-        for (int i = 0; i< x.length; i++)
+        for (int i = 0; i < x.length; i++)
             x[i] = e.getParameters().get(i).accept(this);
 
         return e.getType().calculate(x);

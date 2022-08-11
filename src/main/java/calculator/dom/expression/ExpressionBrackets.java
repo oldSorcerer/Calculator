@@ -11,8 +11,8 @@ public class ExpressionBrackets extends Expression {
         return expression;
     }
 
-    public ExpressionBrackets (Expression expression){
-        if(expression == null)
+    public ExpressionBrackets(Expression expression) {
+        if (expression == null)
             throw new IllegalArgumentException("Expression = null");
         this.expression = expression;
     }

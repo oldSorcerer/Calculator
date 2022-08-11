@@ -14,16 +14,16 @@ public abstract class Sequence extends ParseRule {
     }
 
     @Override
-    protected Object applySpecial(Parser p){
+    protected Object applySpecial(Parser p) {
 
         Object[] results = new Object[members.size()];
-        for (int i = 0; i < results.length; i++ ) {
-            results [i] = members.get(i).apply(p);
+        for (int i = 0; i < results.length; i++) {
+            results[i] = members.get(i).apply(p);
             if (results[i] == null)
                 return null;
         }
-       return collect(results);
+        return collect(results);
     }
 
-    protected abstract Object collect (Object[] results);
+    protected abstract Object collect(Object[] results);
 }

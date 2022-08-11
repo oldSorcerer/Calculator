@@ -6,16 +6,16 @@ import calculator.parser.Parser;
 
 public class Terminal extends ParseRule {
 
-    private LexType lexType;
+    private final LexType lexType;
 
-    public Terminal (LexType lexType){
+    public Terminal(LexType lexType) {
         this.lexType = lexType;
     }
 
     @Override
-    protected Object applySpecial(Parser p) {
-        if (p.recognized >= p.size())
+    protected Object applySpecial(Parser parser) {
+        if (parser.recognized >= parser.size())
             return null;
-        return p.get(p.recognized).getType()==lexType ? p.get(p.recognized++): null;
-    }
+        return parser.get(parser.recognized).getType() == lexType ? parser.get(parser.recognized++) : null;
+    } // тут ломаются тесты если сделать recognized приватным проверить!!
 }

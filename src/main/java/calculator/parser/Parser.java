@@ -5,21 +5,25 @@ import calculator.dom.expressionvisitor.ExpressionRebuildVisitor;
 import calculator.lexer.*;
 import calculator.parser.alternative.Alternative;
 import calculator.parser.alternative.RootAlternative;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.*;
 
 public class Parser {
 
+    public int recognized; // колличество распознаных лексем!
+
     private List<Lex> lexes;
 
-    public Parser (List<Lex> lexes) throws ParserException {
+    public Parser(List<Lex> lexes) throws ParserException {
         if (lexes == null)
             throw new IllegalArgumentException("Lexes cannot be Null!");
 
         this.lexes = new ArrayList<>();
         LinkedList<Integer> position = new LinkedList<>();
 
-        for (Lex lex : lexes){
+        for (Lex lex : lexes) {
             if (lex.getType() == LexType.Error)
                 position.add(lex.getPosition());
             if (lex.getType() != LexType.Space)
@@ -34,29 +38,28 @@ public class Parser {
         }
     }
 
-    public int recognized; // колличество распознаных лексем!
 
-    public int size (){
+    public int size() {
         return lexes.size();
     }
 
-    public Lex get(int number){
+    public Lex get(int number) {
         return lexes.get(number);
     }
 
-    public Expression parse () throws ParserException {
+    public Expression parse() throws ParserException {
         Alternative root = new RootAlternative(false);
-        Expression result = (Expression)root.apply(this);
+        Expression result = (Expression) root.apply(this);
 
-        if (result == null){
+        if (result == null) {
             throw new ParserException("Failed to parse", new int[0]);
         }
 
-        if (recognized < size()){
+        if (recognized < size()) {
             throw new ParserException("Failed to parse whole",
-                    new int[] { lexes.get(recognized).getPosition() });
+                    new int[]{lexes.get(recognized).getPosition()});
         }
 
-        return  result.accept(new ExpressionRebuildVisitor());
+        return result.accept(new ExpressionRebuildVisitor());
     }
 }

@@ -7,7 +7,7 @@ import java.util.LinkedList;
 
 public class Alternative extends ParseRule {
 
-    private LinkedList <ParseRule> alternatives = new LinkedList<>();
+    private LinkedList<ParseRule> alternatives = new LinkedList<>();
 
     public LinkedList<ParseRule> getAlternatives() {
         return alternatives;

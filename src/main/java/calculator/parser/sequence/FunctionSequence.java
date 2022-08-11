@@ -14,7 +14,7 @@ import java.util.LinkedList;
 
 public class FunctionSequence extends Sequence {
 
-    public FunctionSequence(RootAlternative root){
+    public FunctionSequence(RootAlternative root) {
         getMembers().add(new Terminal(LexType.NameFunc));
         getMembers().add(new Terminal(LexType.OpenBracket));
         Alternative parameters = new Alternative();
@@ -28,15 +28,15 @@ public class FunctionSequence extends Sequence {
     protected Object collect(Object[] results) {
 
         FunctionExpression result = new FunctionExpression();
-        for (FunctionType fun: FunctionType.values())
-            if (((Lex)results[0]).getText().equals(fun.toString().toLowerCase())){
+        for (FunctionType fun : FunctionType.values())
+            if (((Lex) results[0]).getText().equals(fun.toString().toLowerCase())) {
                 result.setType(fun);
                 break;
             }
-        if (Expression.class.isInstance(results[2]))
-            result.getParameters().add((Expression)results[2]);
+        if (results[2] instanceof Expression)
+            result.getParameters().add((Expression) results[2]);
         else if (results[2].getClass().equals(LinkedList.class))
-            result.getParameters().addAll((LinkedList<Expression>)results[2]);
+            result.getParameters().addAll((LinkedList<Expression>) results[2]);
 
         return result;
     }

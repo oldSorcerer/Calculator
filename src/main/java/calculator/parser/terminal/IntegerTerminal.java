@@ -11,8 +11,8 @@ public class IntegerTerminal extends Terminal {
     }
 
     @Override
-    protected Object applySpecial(Parser p) {
-        Lex lex = (Lex)super.applySpecial(p);
+    protected Object applySpecial(Parser parser) {
+        Lex lex = (Lex) super.applySpecial(parser);
         return lex != null ? new NumberExpression(Integer.parseInt(lex.getText())) : null;
     }
 
