@@ -1,18 +1,14 @@
 package calculator.dom.expressionvisitor;
 
-import calculator.dom.expression.BinaryExpression;
-import calculator.dom.expression.FunctionExpression;
-import calculator.dom.expression.NumberExpression;
-import calculator.dom.expression.XExpression;
+import calculator.dom.expression.*;
 
 public interface ExpressionVisitor<T> {
 
-    T visit(BinaryExpression e);
+    T visit(BinaryExpression binaryExpression);
 
-    T visit(NumberExpression e);
+    T visit(NumberExpression numberExpression);
 
-    T visit(XExpression e);
+    T visit(XExpression xExpression);
 
-    T visit(FunctionExpression e);
-
+    T visit(FunctionExpression functionExpression);
 }

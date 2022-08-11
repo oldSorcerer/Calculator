@@ -2,7 +2,7 @@ package calculator.parser;
 
 public abstract class ParseRule {
 
-    public final Object apply (Parser p){
+    public final Object apply(Parser p) {
         int count = p.recognized;
         Object result = applySpecial(p);
         if (result == null)
@@ -10,6 +10,6 @@ public abstract class ParseRule {
         return result;
     }
 
-    protected abstract Object applySpecial (Parser p);
+    protected abstract Object applySpecial(Parser p);
 
 }

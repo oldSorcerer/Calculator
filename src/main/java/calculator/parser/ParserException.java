@@ -1,16 +1,14 @@
 package calculator.parser;
 
-public class ParserException  extends Exception {
+import lombok.Getter;
 
-    private int[] position;
+@Getter
+public class ParserException extends Exception {
 
-    public int [] getPosition() {
-        return position;
-    }
+    private final int[] position;
 
-    public ParserException (String text, int[] position){
+    public ParserException(String text, int[] position) {
         super(text);
         this.position = position;
     }
-
 }

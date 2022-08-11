@@ -10,7 +10,7 @@ import calculator.parser.alternative.RootAlternative;
 
 public class BinarySequence extends Sequence {
 
-    public BinarySequence (RootAlternative root){
+    public BinarySequence(RootAlternative root) {
         getMembers().add(new RootAlternative(true, root));
         getMembers().add(new Terminal(LexType.Operator));
         getMembers().add(root);
@@ -20,14 +20,14 @@ public class BinarySequence extends Sequence {
     protected Object collect(Object[] results) {
         BinaryExpression result = new BinaryExpression();
         result.setLeft((Expression) results[0]);
-        result.setOperator(BinaryOperator.fromChar(((Lex)results[1]).getText().charAt(0)));
+        result.setOperator(BinaryOperator.fromChar(((Lex) results[1]).getText().charAt(0)));
         result.setRight((Expression) results[2]);
-        if (result.getRight().getClass().equals(BinaryExpression.class)){
-            BinaryExpression right_binary = (BinaryExpression)result.getRight();
+        if (result.getRight().getClass().equals(BinaryExpression.class)) {
+            BinaryExpression right_binary = (BinaryExpression) result.getRight();
 
             if (result.getOperator().getPriority() > right_binary.getOperator().getPriority()
-            || (result.getOperator().getPriority() == right_binary.getOperator().getPriority()
-                    && !result.getOperator().getCommutative())) {
+                    || (result.getOperator().getPriority() == right_binary.getOperator().getPriority()
+                    && !result.getOperator().isCommutative())) {
                 BinaryExpression left = new BinaryExpression();
                 left.setLeft(result.getLeft());
                 left.setOperator(result.getOperator());
@@ -37,7 +37,6 @@ public class BinarySequence extends Sequence {
                 result.setRight(right_binary.getRight());
             }
         }
-
         return result;
     }
 }

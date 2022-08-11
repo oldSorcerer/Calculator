@@ -8,7 +8,7 @@ import calculator.parser.alternative.RootAlternative;
 
 public class BracketSequence extends Sequence {
 
-    public BracketSequence(RootAlternative root){
+    public BracketSequence(RootAlternative root) {
         getMembers().add(new Terminal(LexType.OpenBracket));
         getMembers().add(root);
         getMembers().add(new Terminal(LexType.CloseBracket));
@@ -16,6 +16,6 @@ public class BracketSequence extends Sequence {
 
     @Override
     protected Object collect(Object[] results) {
-        return new ExpressionBrackets((Expression)results[1]);
+        return new ExpressionBrackets((Expression) results[1]);
     }
 }

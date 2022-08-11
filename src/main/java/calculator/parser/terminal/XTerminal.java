@@ -6,11 +6,12 @@ import calculator.parser.Parser;
 
 public class XTerminal extends Terminal {
 
-    public XTerminal(){
+    public XTerminal() {
         super(LexType.X);
     }
+
     @Override
-    protected Object applySpecial(Parser p){
-        return super.applySpecial(p) == null ? null: new XExpression();
+    protected Object applySpecial(Parser parser) {
+        return super.applySpecial(parser) == null ? null : new XExpression();
     }
 }

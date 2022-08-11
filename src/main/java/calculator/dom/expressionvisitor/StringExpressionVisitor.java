@@ -1,63 +1,59 @@
 package calculator.dom.expressionvisitor;
 
 import calculator.dom.expression.*;
-import calculator.dom.expressionvisitor.ExpressionVisitor;
 
 import java.util.ArrayList;
 
 public class StringExpressionVisitor implements ExpressionVisitor<String> {
     @Override
-    public String visit(BinaryExpression e) {
+    public String visit(BinaryExpression binaryExpression) {
 
-        if (e.getLeft() == null || e.getOperator() == null || e.getRight() == null)
+        if (binaryExpression.getLeft() == null || binaryExpression.getOperator() == null || binaryExpression.getRight() == null)
             return "";
 
         BinaryExpression left = null;
         BinaryExpression right = null;
 
-        if (e.getLeft().getClass().equals(BinaryExpression.class)){
-            left = (BinaryExpression)e.getLeft();
+        if (binaryExpression.getLeft().getClass().equals(BinaryExpression.class)) {
+            left = (BinaryExpression) binaryExpression.getLeft();
         }
 
-        if (e.getRight().getClass().equals(BinaryExpression.class)){
-            right = (BinaryExpression)e.getRight();
+        if (binaryExpression.getRight().getClass().equals(BinaryExpression.class)) {
+            right = (BinaryExpression) binaryExpression.getRight();
         }
 
-        String leftstr = e.getLeft().accept(this);
-        String rightstr = e.getRight().accept(this);
+        String leftstr = binaryExpression.getLeft().accept(this);
+        String rightstr = binaryExpression.getRight().accept(this);
 
         if (left != null && left.getOperator() != null
-            && left.getOperator().getPriority() < e.getOperator().getPriority())
+                && left.getOperator().getPriority() < binaryExpression.getOperator().getPriority())
             leftstr = "(" + leftstr + ")";
 
-        if (right != null  && right.getOperator() != null
-            && (right.getOperator().getPriority() < e.getOperator().getPriority()
-            || (right.getOperator().getPriority() == e.getOperator().getPriority()
-            && !e.getOperator().getCommutative())))
+        if (right != null && right.getOperator() != null
+                && (right.getOperator().getPriority() < binaryExpression.getOperator().getPriority()
+                || (right.getOperator().getPriority() == binaryExpression.getOperator().getPriority()
+                && !binaryExpression.getOperator().isCommutative())))
             rightstr = "(" + rightstr + ")";
 
-        return (leftstr + " " + e.getOperator() + " " + rightstr);
+        return (leftstr + " " + binaryExpression.getOperator() + " " + rightstr);
     }
 
     @Override
-    public String visit(NumberExpression e) {
-
-        return e.getValue().toString();
+    public String visit(NumberExpression numberExpression) {
+        return numberExpression.getValue().toString();
     }
 
     @Override
-    public String visit(XExpression e) {
+    public String visit(XExpression xExpression) {
         return "x";
     }
 
     @Override
-    public String visit(FunctionExpression e) {
+    public String visit(FunctionExpression functionExpression) {
+        ArrayList<String> parameters = new ArrayList<>(functionExpression.getParameters().size());
 
-        ArrayList<String> parameters = new ArrayList<>(e.getParameters().size());
-
-        for (Expression p: e.getParameters())
+        for (Expression p : functionExpression.getParameters())
             parameters.add(p.accept(this));
-        return e.getType().toString().toLowerCase() + "(" + String.join(", ", parameters) + ")" ;
-
+        return functionExpression.getType().toString().toLowerCase() + "(" + String.join(", ", parameters) + ")";
     }
 }
