@@ -32,7 +32,7 @@ public class StringExpressionVisitor implements ExpressionVisitor<String> {
         if (right != null && right.getOperator() != null
                 && (right.getOperator().getPriority() < binaryExpression.getOperator().getPriority()
                 || (right.getOperator().getPriority() == binaryExpression.getOperator().getPriority()
-                && !binaryExpression.getOperator().getCommutative())))
+                && !binaryExpression.getOperator().isCommutative())))
             rightstr = "(" + rightstr + ")";
 
         return (leftstr + " " + binaryExpression.getOperator() + " " + rightstr);
