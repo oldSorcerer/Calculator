@@ -1,9 +1,6 @@
 package calculator.dom;
 
-import calculator.dom.expression.BinaryExpression;
-import calculator.dom.expression.FunctionExpression;
-import calculator.dom.expression.NumberExpression;
-import calculator.dom.expression.XExpression;
+import calculator.dom.expression.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -120,7 +117,6 @@ class StringExpressionVisitorTest {
         right.setRight(new NumberExpression(3));
         e.setOperator(BinaryOperator.Minus);
         e.setLeft(new XExpression());
-        double x = 10;
         assertEquals("x - (5 + 3)", e.toString());
     }
 

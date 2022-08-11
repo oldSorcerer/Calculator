@@ -1,7 +1,7 @@
 package calculator.dom.expression;
 
-import calculator.dom.expressionvisitor.ExpressionVisitor;
-import calculator.dom.expressionvisitor.StringExpressionVisitor;
+import calculator.dom.expression.visitor.ExpressionVisitor;
+import calculator.dom.expression.visitor.StringExpressionVisitor;
 
 public abstract class Expression {
 

@@ -1,10 +1,7 @@
 package calculator.dom;
 
-import calculator.dom.expression.BinaryExpression;
-import calculator.dom.expression.FunctionExpression;
-import calculator.dom.expression.NumberExpression;
-import calculator.dom.expression.XExpression;
-import calculator.dom.expressionvisitor.CalculateExpressionVisitor;
+import calculator.dom.expression.*;
+import calculator.dom.expression.visitor.CalculateExpressionVisitor;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
