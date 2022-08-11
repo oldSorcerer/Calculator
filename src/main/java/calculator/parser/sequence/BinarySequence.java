@@ -27,7 +27,7 @@ public class BinarySequence extends Sequence {
 
             if (result.getOperator().getPriority() > right_binary.getOperator().getPriority()
                     || (result.getOperator().getPriority() == right_binary.getOperator().getPriority()
-                    && !result.getOperator().isCommutative())) {
+                    && !result.getOperator().getCommutative())) {
                 BinaryExpression left = new BinaryExpression();
                 left.setLeft(result.getLeft());
                 left.setOperator(result.getOperator());
