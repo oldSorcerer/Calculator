@@ -1,11 +1,14 @@
-package calculator.parser;
+package calculator.parser.sequence;
 
 import calculator.dom.Expression;
 import calculator.lexer.LexType;
+import calculator.parser.alternative.ParametersAlternative;
+import calculator.parser.alternative.RootAlternative;
+import calculator.parser.terminal.Terminal;
 
 import java.util.LinkedList;
 
-public class ParametersSequence extends Sequence{
+public class ParametersSequence extends Sequence {
 
     public ParametersSequence (RootAlternative root, ParametersAlternative tail){
         getMembers().add(root);
@@ -19,7 +22,7 @@ public class ParametersSequence extends Sequence{
         LinkedList<Expression> result = new LinkedList<>();
 
         result.add((Expression)results[0]);
-        if (Expression.class.isInstance(results[2]))
+        if (results[2] instanceof Expression)
             result.add((Expression)results[2]);
         else if (results[2].getClass().equals(LinkedList.class))
             result.addAll((LinkedList<Expression>)results[2]);

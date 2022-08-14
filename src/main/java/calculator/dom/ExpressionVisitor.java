@@ -1,10 +1,13 @@
 package calculator.dom;
 
-public interface ExpressionVisitor<O> {
+public interface ExpressionVisitor<T> {
 
-    O visit(BinaryExpression e);
-    O visit(NumberExpression e);
-    O visit(XExpression e);
-    O visit(FunctionExpression e);
+    T visit(BinaryExpression e);
+
+    T visit(NumberExpression e);
+
+    T visit(XExpression e);
+
+    T visit(FunctionExpression e);
 
 }

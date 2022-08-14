@@ -3,9 +3,9 @@ package calculator.parser;
 import calculator.dom.Expression;
 import calculator.dom.ExpressionVisitor;
 
-class ExpressionBrackets extends Expression {
+public class ExpressionBrackets extends Expression {
 
-    private Expression expression;
+    private final Expression expression;
 
     public Expression getExpression() {
         return expression;
@@ -18,7 +18,7 @@ class ExpressionBrackets extends Expression {
     }
 
     @Override
-    public <O> O accept(ExpressionVisitor<O> visitor) {
+    public <T> T accept(ExpressionVisitor<T> visitor) {
         return expression.accept(visitor);
     }
 

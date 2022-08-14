@@ -1,41 +1,38 @@
 package calculator.dom;
 
-public class CalculateExpressionVisitor implements ExpressionVisitor <Double>{
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-    public CalculateExpressionVisitor(double x) {
-        this.x = x;
-    }
+@Getter
+@AllArgsConstructor
+public class CalculateExpressionVisitor implements ExpressionVisitor<Double> {
+
+    private final double x;
 
     @Override
-    public Double visit(BinaryExpression e) {
-
-        if (e.getLeft() == null || e.getOperator() == null || e.getRight() == null)
+    public Double visit(BinaryExpression expression) {
+        if (expression.getLeft() == null || expression.getOperator() == null || expression.getRight() == null) {
             return null;
-        return e.getOperator().calculate( e.getLeft().accept(this), e.getRight().accept(this) ) ;
+        }
+        return expression.getOperator().calculate(expression.getLeft().accept(this), expression.getRight().accept(this));
     }
 
     @Override
-    public Double visit(NumberExpression e) {
-        return e.getValue().doubleValue();
+    public Double visit(NumberExpression expression) {
+        return expression.getValue().doubleValue();
     }
 
-    private double x;
-
     @Override
-    public Double visit(XExpression e) {
+    public Double visit(XExpression expression) {
         return x;
     }
 
     @Override
-    public Double visit(FunctionExpression e) {
-        double x[] = new double[e.getParameters().size()];
-        for (int i = 0; i< x.length; i++)
-            x[i] = e.getParameters().get(i).accept(this);
-
-        return e.getType().calculate(x);
-    }
-
-    public double getX() {
-        return x;
+    public Double visit(FunctionExpression expression) {
+        double[] x = new double[expression.getParameters().size()];
+        for (int i = 0; i < x.length; i++) {
+            x[i] = expression.getParameters().get(i).accept(this);
+        }
+        return expression.getType().calculate(x);
     }
 }

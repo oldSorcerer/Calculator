@@ -1,4 +1,6 @@
-package calculator.parser;
+package calculator.parser.alternative;
+
+import calculator.parser.sequence.ParametersSequence;
 
 public class ParametersAlternative extends Alternative {
 

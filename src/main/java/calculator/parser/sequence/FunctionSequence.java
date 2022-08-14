@@ -1,14 +1,18 @@
-package calculator.parser;
+package calculator.parser.sequence;
 
 import calculator.dom.Expression;
 import calculator.dom.FunctionExpression;
 import calculator.dom.FunctionType;
 import calculator.lexer.Lex;
 import calculator.lexer.LexType;
+import calculator.parser.alternative.Alternative;
+import calculator.parser.alternative.ParametersAlternative;
+import calculator.parser.alternative.RootAlternative;
+import calculator.parser.terminal.Terminal;
 
 import java.util.LinkedList;
 
-public class FunctionSequence extends Sequence{
+public class FunctionSequence extends Sequence {
 
     public FunctionSequence(RootAlternative root){
         getMembers().add(new Terminal(LexType.NameFunc));
@@ -29,7 +33,7 @@ public class FunctionSequence extends Sequence{
                 result.setType(fun);
                 break;
             }
-        if (Expression.class.isInstance(results[2]))
+        if (results[2] instanceof Expression)
             result.getParameters().add((Expression)results[2]);
         else if (results[2].getClass().equals(LinkedList.class))
             result.getParameters().addAll((LinkedList<Expression>)results[2]);

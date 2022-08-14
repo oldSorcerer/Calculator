@@ -1,10 +1,12 @@
-package calculator.parser;
+package calculator.parser.sequence;
 
 import calculator.dom.BinaryExpression;
 import calculator.dom.BinaryOperator;
 import calculator.dom.Expression;
 import calculator.lexer.Lex;
 import calculator.lexer.LexType;
+import calculator.parser.alternative.RootAlternative;
+import calculator.parser.terminal.Terminal;
 
 public class BinarySequence extends Sequence {
 
@@ -25,7 +27,7 @@ public class BinarySequence extends Sequence {
 
             if (result.getOperator().getPriority() > right_binary.getOperator().getPriority()
             || (result.getOperator().getPriority() == right_binary.getOperator().getPriority()
-                    && !result.getOperator().getCommutative())) {
+                    && !result.getOperator().isCommutative())) {
                 BinaryExpression left = new BinaryExpression();
                 left.setLeft(result.getLeft());
                 left.setOperator(result.getOperator());
