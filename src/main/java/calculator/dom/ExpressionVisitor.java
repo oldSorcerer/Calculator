@@ -1,4 +1,4 @@
-package calculator.om;
+package calculator.dom;
 
 public interface ExpressionVisitor<T> {
 

@@ -1,8 +1,8 @@
 package calculator.parser.sequence;
 
-import calculator.om.Expression;
-import calculator.om.FunctionExpression;
-import calculator.om.FunctionType;
+import calculator.dom.Expression;
+import calculator.dom.FunctionExpression;
+import calculator.dom.FunctionType;
 import calculator.lexer.Lex;
 import calculator.lexer.LexType;
 import calculator.parser.terminal.Terminal;

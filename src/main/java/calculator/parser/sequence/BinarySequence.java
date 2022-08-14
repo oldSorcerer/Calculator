@@ -1,8 +1,8 @@
 package calculator.parser.sequence;
 
-import calculator.om.BinaryExpression;
-import calculator.om.BinaryOperator;
-import calculator.om.Expression;
+import calculator.dom.BinaryExpression;
+import calculator.dom.BinaryOperator;
+import calculator.dom.Expression;
 import calculator.lexer.Lex;
 import calculator.lexer.LexType;
 import calculator.parser.terminal.Terminal;

@@ -1,6 +1,6 @@
 package calculator.parser.sequence;
 
-import calculator.om.Expression;
+import calculator.dom.Expression;
 import calculator.lexer.LexType;
 import calculator.parser.terminal.Terminal;
 import calculator.parser.alternative.ParametersAlternative;

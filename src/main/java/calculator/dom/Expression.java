@@ -1,7 +1,4 @@
-package calculator.om;
-
-import calculator.om.ExpressionVisitor;
-import calculator.om.StringExpressionVisitor;
+package calculator.dom;
 
 public abstract class Expression {
 

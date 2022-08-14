@@ -1,4 +1,4 @@
-package calculator.om;
+package calculator.dom;
 
 import static java.lang.Math.*;
 

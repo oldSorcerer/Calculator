@@ -1,7 +1,5 @@
-package calculator.om;
+package calculator.dom;
 
-import calculator.om.Expression;
-import calculator.om.ExpressionVisitor;
 import lombok.Getter;
 
 @Getter
