@@ -12,7 +12,6 @@ public class NumberExpression extends Expression {
             throw new IllegalArgumentException("Number cannot be Null!");
         this.value = value;
     }
-
     @Override
     public <T> T accept(ExpressionVisitor<T> visitor) {
         return visitor.visit(this);

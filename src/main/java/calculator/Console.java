@@ -1,6 +1,6 @@
 package calculator;
 
-import calculator.dom.CalculateExpressionVisitor;
+import calculator.expression.visitor.CalculateExpressionVisitor;
 import calculator.lexer.Lexer;
 import calculator.parser.Parser;
 import calculator.parser.ParserException;
@@ -19,10 +19,9 @@ public class Console {
                 x = Double.parseDouble(reader.readLine());
             }
             System.out.println(p.parse().accept(new CalculateExpressionVisitor(x)));
-        } catch (ParserException ex) {
-            System.out.println(ex);
-            System.out.println("Incorrect symbols: ");
-            for (int pos : ex.getPosition())
+        } catch (ParserException exception) {
+            System.out.println(exception + "");
+            for (int pos : exception.getPosition())
                 System.out.println(text.charAt(pos));
         }
     }
