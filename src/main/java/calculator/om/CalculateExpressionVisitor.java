@@ -1,10 +1,5 @@
-package calculator.expression.visitor;
+package calculator.om;
 
-import calculator.om.expression.*;
-import calculator.expression.BinaryExpression;
-import calculator.expression.FunctionExpression;
-import calculator.expression.NumberExpression;
-import calculator.expression.XExpression;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

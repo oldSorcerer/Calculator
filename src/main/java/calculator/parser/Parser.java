@@ -1,10 +1,10 @@
 package calculator.parser;
 
-import calculator.expression.Expression;
-import calculator.expression.visitor.ExpressionRebuildVisitor;
+import calculator.om.Expression;
+import calculator.om.ExpressionRebuildVisitor;
 import calculator.lexer.*;
-import calculator.alternative.Alternative;
-import calculator.alternative.RootAlternative;
+import calculator.parser.alternative.Alternative;
+import calculator.parser.alternative.RootAlternative;
 
 import java.util.*;
 

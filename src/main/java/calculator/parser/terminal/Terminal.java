@@ -1,4 +1,4 @@
-package calculator.terminal;
+package calculator.parser.terminal;
 
 import calculator.lexer.LexType;
 import calculator.parser.ParseRule;

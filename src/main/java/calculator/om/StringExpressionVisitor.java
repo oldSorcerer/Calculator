@@ -1,7 +1,4 @@
-package calculator.expression.visitor;
-
-import calculator.om.expression.*;
-import calculator.expression.*;
+package calculator.om;
 
 import java.util.ArrayList;
 

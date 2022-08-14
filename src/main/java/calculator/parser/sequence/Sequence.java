@@ -1,4 +1,4 @@
-package calculator.sequence;
+package calculator.parser.sequence;
 
 import calculator.parser.ParseRule;
 import calculator.parser.Parser;

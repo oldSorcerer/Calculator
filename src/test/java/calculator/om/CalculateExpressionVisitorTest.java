@@ -1,11 +1,5 @@
 package calculator.om;
 
-import calculator.om.expression.*;
-import calculator.expression.BinaryExpression;
-import calculator.expression.FunctionExpression;
-import calculator.expression.NumberExpression;
-import calculator.expression.XExpression;
-import calculator.expression.visitor.CalculateExpressionVisitor;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

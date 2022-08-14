@@ -1,10 +1,10 @@
-package calculator.sequence;
+package calculator.parser.sequence;
 
-import calculator.expression.Expression;
+import calculator.om.Expression;
 import calculator.lexer.LexType;
-import calculator.expression.ExpressionBrackets;
-import calculator.terminal.Terminal;
-import calculator.alternative.RootAlternative;
+import calculator.om.ExpressionBrackets;
+import calculator.parser.terminal.Terminal;
+import calculator.parser.alternative.RootAlternative;
 
 public class BracketSequence extends Sequence {
 

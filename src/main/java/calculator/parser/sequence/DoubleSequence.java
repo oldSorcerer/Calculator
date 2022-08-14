@@ -1,8 +1,8 @@
-package calculator.sequence;
+package calculator.parser.sequence;
 
-import calculator.expression.NumberExpression;
+import calculator.om.NumberExpression;
 import calculator.lexer.*;
-import calculator.terminal.Terminal;
+import calculator.parser.terminal.Terminal;
 
 public class DoubleSequence extends Sequence {
     public DoubleSequence() {

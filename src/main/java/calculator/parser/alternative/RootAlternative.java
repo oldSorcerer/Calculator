@@ -1,12 +1,11 @@
-package calculator.alternative;
+package calculator.parser.alternative;
 
-import calculator.parser.sequence.*;
-import calculator.terminal.IntegerTerminal;
-import calculator.terminal.XTerminal;
-import calculator.sequence.BinarySequence;
-import calculator.sequence.BracketSequence;
-import calculator.sequence.DoubleSequence;
-import calculator.sequence.FunctionSequence;
+import calculator.parser.terminal.IntegerTerminal;
+import calculator.parser.terminal.XTerminal;
+import calculator.parser.sequence.BinarySequence;
+import calculator.parser.sequence.BracketSequence;
+import calculator.parser.sequence.DoubleSequence;
+import calculator.parser.sequence.FunctionSequence;
 
 public class RootAlternative extends Alternative {
     public RootAlternative(boolean isLeft) {

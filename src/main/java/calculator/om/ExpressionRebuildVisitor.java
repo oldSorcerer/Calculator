@@ -1,7 +1,4 @@
-package calculator.expression.visitor;
-
-import calculator.om.expression.*;
-import calculator.expression.*;
+package calculator.om;
 
 public class ExpressionRebuildVisitor implements ExpressionVisitor<Expression> {
 

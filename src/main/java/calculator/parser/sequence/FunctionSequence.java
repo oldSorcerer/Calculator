@@ -1,14 +1,14 @@
-package calculator.sequence;
+package calculator.parser.sequence;
 
-import calculator.expression.Expression;
-import calculator.expression.FunctionExpression;
+import calculator.om.Expression;
+import calculator.om.FunctionExpression;
 import calculator.om.FunctionType;
 import calculator.lexer.Lex;
 import calculator.lexer.LexType;
-import calculator.terminal.Terminal;
-import calculator.alternative.Alternative;
-import calculator.alternative.ParametersAlternative;
-import calculator.alternative.RootAlternative;
+import calculator.parser.terminal.Terminal;
+import calculator.parser.alternative.Alternative;
+import calculator.parser.alternative.ParametersAlternative;
+import calculator.parser.alternative.RootAlternative;
 
 import java.util.LinkedList;
 

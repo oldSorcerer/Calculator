@@ -1,6 +1,6 @@
-package calculator.terminal;
+package calculator.parser.terminal;
 
-import calculator.expression.NumberExpression;
+import calculator.om.NumberExpression;
 import calculator.lexer.*;
 import calculator.parser.Parser;
 

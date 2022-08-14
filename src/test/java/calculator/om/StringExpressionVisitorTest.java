@@ -1,10 +1,5 @@
 package calculator.om;
 
-import calculator.om.expression.*;
-import calculator.expression.BinaryExpression;
-import calculator.expression.FunctionExpression;
-import calculator.expression.NumberExpression;
-import calculator.expression.XExpression;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

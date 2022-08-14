@@ -1,6 +1,7 @@
-package calculator.expression;
+package calculator.om;
 
-import calculator.expression.visitor.ExpressionVisitor;
+import calculator.om.Expression;
+import calculator.om.ExpressionVisitor;
 
 public class XExpression extends Expression {
 

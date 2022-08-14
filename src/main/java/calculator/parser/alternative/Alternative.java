@@ -1,4 +1,4 @@
-package calculator.alternative;
+package calculator.parser.alternative;
 
 import calculator.parser.ParseRule;
 import calculator.parser.Parser;

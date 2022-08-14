@@ -1,4 +1,4 @@
-package calculator.sequence;
+package calculator.parser.sequence;
 
 public class EmptySequence extends Sequence {
 
