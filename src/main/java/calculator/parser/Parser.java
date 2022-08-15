@@ -2,21 +2,22 @@ package calculator.parser;
 
 import calculator.dom.Expression;
 import calculator.dom.ExpressionRebuildVisitor;
-import calculator.lexer.*;
+import calculator.lexer.Lex;
+import calculator.lexer.LexType;
 import calculator.parser.alternative.Alternative;
 import calculator.parser.alternative.RootAlternative;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Parser {
 
     public int recognized; // колличество распознаных лексем!
-
     private final List<Lex> lexes;
 
     public Parser(List<Lex> lexes) throws ParserException {
-        if (lexes == null)
-            throw new IllegalArgumentException("Lexes cannot be Null!");
+        if (lexes == null) throw new IllegalArgumentException("Lexes cannot be Null!");
 
         this.lexes = new ArrayList<>();
         LinkedList<Integer> position = new LinkedList<>();
@@ -34,6 +35,7 @@ public class Parser {
                 pos2[i++] = x;
             throw new ParserException("Неверный символ в выражении!", pos2);
         }
+
     }
 
     public int size() {

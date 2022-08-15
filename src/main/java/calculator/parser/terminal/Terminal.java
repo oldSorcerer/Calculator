@@ -11,9 +11,10 @@ public class Terminal extends ParseRule {
     private final LexType lexType;
 
     @Override
-    protected Object applySpecial(Parser p) {
-        if (p.recognized >= p.size())
+    protected Object applySpecial(Parser parser) {
+        if (parser.recognized >= parser.size())
             return null;
-        return p.get(p.recognized).getType() == lexType ? p.get(p.recognized++) : null;
+
+        return parser.get(parser.recognized).getType() == lexType ? parser.get(parser.recognized++) : null;
     }
 }
