@@ -3,8 +3,8 @@ package calculator.parser.sequence;
 import calculator.dom.Expression;
 import calculator.dom.FunctionExpression;
 import calculator.dom.FunctionType;
-import calculator.lexer.Lex;
-import calculator.lexer.LexType;
+import calculator.lexer.Lexeme;
+import calculator.lexer.LexemeType;
 import calculator.parser.terminal.Terminal;
 import calculator.parser.alternative.Alternative;
 import calculator.parser.alternative.ParametersAlternative;
@@ -15,13 +15,13 @@ import java.util.LinkedList;
 public class FunctionSequence extends Sequence {
 
     public FunctionSequence(RootAlternative root) {
-        getMembers().add(new Terminal(LexType.NameFunc));
-        getMembers().add(new Terminal(LexType.OpenBracket));
+        getMembers().add(new Terminal(LexemeType.NameFunc));
+        getMembers().add(new Terminal(LexemeType.OpenBracket));
         Alternative parameters = new Alternative();
         parameters.getAlternatives().add(new ParametersAlternative(root));
         parameters.getAlternatives().add(new EmptySequence());
         getMembers().add(parameters);
-        getMembers().add(new Terminal(LexType.CloseBracket));
+        getMembers().add(new Terminal(LexemeType.CloseBracket));
     }
 
     @Override
@@ -29,7 +29,7 @@ public class FunctionSequence extends Sequence {
 
         FunctionExpression result = new FunctionExpression();
         for (FunctionType fun : FunctionType.values())
-            if (((Lex) results[0]).getText().equals(fun.toString().toLowerCase())) {
+            if (((Lexeme) results[0]).getText().equals(fun.toString().toLowerCase())) {
                 result.setType(fun);
                 break;
             }

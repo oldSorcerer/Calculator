@@ -3,6 +3,7 @@ package calculator.dom;
 import java.util.ArrayList;
 
 public class StringExpressionVisitor implements ExpressionVisitor<String> {
+
     @Override
     public String visit(BinaryExpression binaryExpression) {
 

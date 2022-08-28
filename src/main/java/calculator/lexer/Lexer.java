@@ -6,12 +6,12 @@ import calculator.dom.*;
 
 public class Lexer {
 
-    private static LexRule rules[] = new LexRule[]
+    private static final LexemeRule[] rules = new LexemeRule[]
             {
-                    new LexRule() {
+                    new LexemeRule() {
                         @Override
-                        public LexType getType() {
-                            return LexType.Digits;
+                        public LexemeType getType() {
+                            return LexemeType.Digits;
                         }
 
                         @Override
@@ -24,10 +24,10 @@ public class Lexer {
                             return i;
                         }
                     },
-                    new LexRule() {
+                    new LexemeRule() {
                         @Override
-                        public LexType getType() {
-                            return LexType.Dot;
+                        public LexemeType getType() {
+                            return LexemeType.Dot;
                         }
 
                         @Override
@@ -37,10 +37,10 @@ public class Lexer {
                             else return 0;
                         }
                     },
-                    new LexRule() {
+                    new LexemeRule() {
                         @Override
-                        public LexType getType() {
-                            return LexType.Space;
+                        public LexemeType getType() {
+                            return LexemeType.Space;
                         }
 
                         @Override
@@ -53,10 +53,10 @@ public class Lexer {
                             return i;
                         }
                     },
-                    new LexRule() {
+                    new LexemeRule() {
                         @Override
-                        public LexType getType() {
-                            return LexType.Operator;
+                        public LexemeType getType() {
+                            return LexemeType.Operator;
                         }
 
                         @Override
@@ -66,10 +66,10 @@ public class Lexer {
                             else return 0;
                         }
                     },
-                    new LexRule() {
+                    new LexemeRule() {
                         @Override
-                        public LexType getType() {
-                            return LexType.OpenBracket;
+                        public LexemeType getType() {
+                            return LexemeType.OpenBracket;
                         }
 
                         @Override
@@ -79,10 +79,10 @@ public class Lexer {
                             else return 0;
                         }
                     },
-                    new LexRule() {
+                    new LexemeRule() {
                         @Override
-                        public LexType getType() {
-                            return LexType.CloseBracket;
+                        public LexemeType getType() {
+                            return LexemeType.CloseBracket;
                         }
 
                         @Override
@@ -93,10 +93,10 @@ public class Lexer {
                         }
                     },
 
-                    new LexRule() {
+                    new LexemeRule() {
                         @Override
-                        public LexType getType() {
-                            return LexType.X;
+                        public LexemeType getType() {
+                            return LexemeType.X;
                         }
 
                         @Override
@@ -107,10 +107,10 @@ public class Lexer {
                         }
                     },
 
-                    new LexRule() {
+                    new LexemeRule() {
                         @Override
-                        public LexType getType() {
-                            return LexType.NameFunc;
+                        public LexemeType getType() {
+                            return LexemeType.NameFunc;
                         }
 
                         @Override
@@ -122,10 +122,10 @@ public class Lexer {
                         }
                     },
 
-                    new LexRule() {
+                    new LexemeRule() {
                         @Override
-                        public LexType getType() {
-                            return LexType.Comma;
+                        public LexemeType getType() {
+                            return LexemeType.Comma;
                         }
 
                         @Override
@@ -136,10 +136,10 @@ public class Lexer {
                         }
                     },
 
-                    new LexRule() {
+                    new LexemeRule() {
                         @Override
-                        public LexType getType() {
-                            return LexType.Error;
+                        public LexemeType getType() {
+                            return LexemeType.Error;
                         }
 
                         @Override
@@ -149,24 +149,23 @@ public class Lexer {
                     }
             };
 
-    public static List<Lex> run(String text) {
-        List<Lex> lexes = new ArrayList<>();
+    public static List<Lexeme> run(String text) {
+        List<Lexeme> lexes = new ArrayList<>();
 
         int position = 0;
 
         while (text.length() > 0) {
-            for (LexRule rule : rules) {
+            for (LexemeRule rule : rules) {
                 int length = rule.getSymbolCount(text);
 
                 if (length > 0) {
-                    lexes.add(new Lex(text.substring(0, length), rule.getType(), position));
+                    lexes.add(new Lexeme(text.substring(0, length), rule.getType(), position));
                     text = text.substring(length);
                     position += length;
                     break;
                 }
             }
         }
-
         return lexes;
     }
 }

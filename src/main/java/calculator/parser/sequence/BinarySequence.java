@@ -3,8 +3,8 @@ package calculator.parser.sequence;
 import calculator.dom.BinaryExpression;
 import calculator.dom.BinaryOperator;
 import calculator.dom.Expression;
-import calculator.lexer.Lex;
-import calculator.lexer.LexType;
+import calculator.lexer.Lexeme;
+import calculator.lexer.LexemeType;
 import calculator.parser.terminal.Terminal;
 import calculator.parser.alternative.RootAlternative;
 
@@ -12,7 +12,7 @@ public class BinarySequence extends Sequence {
 
     public BinarySequence(RootAlternative root) {
         getMembers().add(new RootAlternative(true, root));
-        getMembers().add(new Terminal(LexType.Operator));
+        getMembers().add(new Terminal(LexemeType.Operator));
         getMembers().add(root);
     }
 
@@ -20,7 +20,7 @@ public class BinarySequence extends Sequence {
     protected Object collect(Object[] results) {
         BinaryExpression result = new BinaryExpression();
         result.setLeft((Expression) results[0]);
-        result.setOperator(BinaryOperator.fromChar(((Lex) results[1]).getText().charAt(0)));
+        result.setOperator(BinaryOperator.fromChar(((Lexeme) results[1]).getText().charAt(0)));
         result.setRight((Expression) results[2]);
         if (result.getRight().getClass().equals(BinaryExpression.class)) {
             BinaryExpression right_binary = (BinaryExpression) result.getRight();

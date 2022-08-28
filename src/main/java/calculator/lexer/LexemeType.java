@@ -1,6 +1,6 @@
 package calculator.lexer;
 
-public enum LexType {
+public enum LexemeType {
     Digits,
     Dot,
     Space,

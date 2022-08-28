@@ -1,8 +1,8 @@
 package calculator.lexer;
 
-public interface LexRule {
+public interface LexemeRule {
 
-    LexType getType();
+    LexemeType getType();
 
     int getSymbolCount(String text);
 }

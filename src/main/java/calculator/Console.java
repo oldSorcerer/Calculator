@@ -21,8 +21,8 @@ public class Console {
             System.out.println(p.parse().accept(new CalculateExpressionVisitor(x)));
         } catch (ParserException exception) {
             System.out.println(exception + "");
-            for (int pos : exception.getPosition())
-                System.out.println(text.charAt(pos));
+            for (int position : exception.getPosition())
+                System.out.println(text.charAt(position));
         }
     }
 }

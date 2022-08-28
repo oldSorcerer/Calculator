@@ -5,10 +5,10 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class Lex {
+public class Lexeme {
 
     private final String text;
-    private final LexType type;
+    private final LexemeType type;
     private final int position;
 
 }

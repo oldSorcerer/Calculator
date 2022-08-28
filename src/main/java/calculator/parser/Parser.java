@@ -2,10 +2,12 @@ package calculator.parser;
 
 import calculator.dom.Expression;
 import calculator.dom.ExpressionRebuildVisitor;
-import calculator.lexer.Lex;
-import calculator.lexer.LexType;
+import calculator.lexer.Lexeme;
+import calculator.lexer.LexemeType;
 import calculator.parser.alternative.Alternative;
 import calculator.parser.alternative.RootAlternative;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -13,20 +15,22 @@ import java.util.List;
 
 public class Parser {
 
-    public int recognized; // колличество распознаных лексем!
-    private final List<Lex> lexes;
+    @Getter
+    @Setter
+    private int recognized; // колличество распознаных лексем!
 
-    public Parser(List<Lex> lexes) throws ParserException {
-        if (lexes == null) throw new IllegalArgumentException("Lexes cannot be Null!");
+    @Getter
+    private final List<Lexeme> lexemes;
 
-        this.lexes = new ArrayList<>();
+    public Parser(List<Lexeme> lexemes) throws ParserException {
+        if (lexemes == null) throw new IllegalArgumentException("Lexes cannot be Null!");
+
+        this.lexemes = new ArrayList<>();
         LinkedList<Integer> position = new LinkedList<>();
 
-        for (Lex lex : lexes) {
-            if (lex.getType() == LexType.Error)
-                position.add(lex.getPosition());
-            if (lex.getType() != LexType.Space)
-                this.lexes.add(lex);
+        for (Lexeme lex : lexemes) {
+            if (lex.getType().equals(LexemeType.Error))  position.add(lex.getPosition());
+            if (!lex.getType().equals(LexemeType.Space)) this.lexemes.add(lex);
         }
         if (!position.isEmpty()) {
             int[] pos2 = new int[position.size()];
@@ -35,15 +39,6 @@ public class Parser {
                 pos2[i++] = x;
             throw new ParserException("Неверный символ в выражении!", pos2);
         }
-
-    }
-
-    public int size() {
-        return lexes.size();
-    }
-
-    public Lex get(int number) {
-        return lexes.get(number);
     }
 
     public Expression parse() throws ParserException {
@@ -54,9 +49,9 @@ public class Parser {
             throw new ParserException("Failed to parse", new int[0]);
         }
 
-        if (recognized < size()) {
+        if (recognized < lexemes.size()) {
             throw new ParserException("Failed to parse whole",
-                    new int[]{lexes.get(recognized).getPosition()});
+                    new int[]{lexemes.get(recognized).getPosition()});
         }
 
         return result.accept(new ExpressionRebuildVisitor());

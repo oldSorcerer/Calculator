@@ -1,7 +1,7 @@
 package calculator.parser.sequence;
 
 import calculator.dom.Expression;
-import calculator.lexer.LexType;
+import calculator.lexer.LexemeType;
 import calculator.parser.terminal.Terminal;
 import calculator.parser.alternative.ParametersAlternative;
 import calculator.parser.alternative.RootAlternative;
@@ -12,7 +12,7 @@ public class ParametersSequence extends Sequence {
 
     public ParametersSequence(RootAlternative root, ParametersAlternative tail) {
         getMembers().add(root);
-        getMembers().add(new Terminal(LexType.Comma));
+        getMembers().add(new Terminal(LexemeType.Comma));
         getMembers().add(tail);
     }
 
