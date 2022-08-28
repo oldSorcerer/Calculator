@@ -13,7 +13,10 @@ public class DoubleSequence extends Sequence {
 
     @Override
     protected Object collect(Object[] results) {
-        return new NumberExpression(Double.parseDouble(((Lexeme) results[0]).getText()
-                + "." + ((Lexeme) results[2]).getText()));
+        return new NumberExpression(Double.parseDouble(
+                        ((Lexeme) results[0]).getText() +
+                        "." +
+                        ((Lexeme) results[2]).getText())
+        );
     }
 }

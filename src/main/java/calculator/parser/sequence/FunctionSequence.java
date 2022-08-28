@@ -11,6 +11,7 @@ import calculator.parser.alternative.ParametersAlternative;
 import calculator.parser.alternative.RootAlternative;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class FunctionSequence extends Sequence {
 
@@ -26,8 +27,8 @@ public class FunctionSequence extends Sequence {
 
     @Override
     protected Object collect(Object[] results) {
-
         FunctionExpression result = new FunctionExpression();
+
         for (FunctionType fun : FunctionType.values())
             if (((Lexeme) results[0]).getText().equals(fun.toString().toLowerCase())) {
                 result.setType(fun);

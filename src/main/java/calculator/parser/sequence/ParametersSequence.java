@@ -20,8 +20,8 @@ public class ParametersSequence extends Sequence {
     protected Object collect(Object[] results) {
 
         LinkedList<Expression> result = new LinkedList<>();
-
         result.add((Expression) results[0]);
+
         if (results[2] instanceof Expression)
             result.add((Expression) results[2]);
         else if (results[2].getClass().equals(LinkedList.class))

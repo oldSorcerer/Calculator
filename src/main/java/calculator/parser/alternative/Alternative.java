@@ -4,16 +4,19 @@ import calculator.parser.ParseRule;
 import calculator.parser.Parser;
 import lombok.Getter;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 public class Alternative extends ParseRule {
 
-    private final LinkedList<ParseRule> alternatives = new LinkedList<>();
+    private final List<ParseRule> alternatives = new ArrayList<>();
 
     @Override
-    protected Object applySpecial(Parser p) {
+    protected Object applySpecial(Parser parser) {
         for (ParseRule alt : alternatives) {
-            Object result = alt.apply(p);
+            Object result = alt.apply(parser);
+
             if (result != null)
                 return result;
         }
