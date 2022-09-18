@@ -5,6 +5,7 @@ import calculator.lexer.*;
 import calculator.parser.terminal.Terminal;
 
 public class DoubleSequence extends Sequence {
+
     public DoubleSequence() {
         getMembers().add(new Terminal(LexemeType.Digits));
         getMembers().add(new Terminal(LexemeType.Dot));

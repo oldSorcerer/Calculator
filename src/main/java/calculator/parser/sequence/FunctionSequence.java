@@ -10,6 +10,7 @@ import calculator.parser.alternative.Alternative;
 import calculator.parser.alternative.ParametersAlternative;
 import calculator.parser.alternative.RootAlternative;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -29,15 +30,17 @@ public class FunctionSequence extends Sequence {
     protected Object collect(Object[] results) {
         FunctionExpression result = new FunctionExpression();
 
-        for (FunctionType fun : FunctionType.values())
+        for (FunctionType fun : FunctionType.values()) {
             if (((Lexeme) results[0]).getText().equals(fun.toString().toLowerCase())) {
                 result.setType(fun);
                 break;
             }
-        if (results[2] instanceof Expression)
-            result.getParameters().add((Expression) results[2]);
-        else if (results[2].getClass().equals(LinkedList.class))
-            result.getParameters().addAll((LinkedList<Expression>) results[2]);
+        }
+
+        if (results[2] instanceof Expression expression)
+            result.getParameters().add(expression);
+        else if (results[2].getClass().equals(ArrayList.class))
+            result.getParameters().addAll((List<Expression>) results[2]);
 
         return result;
     }
