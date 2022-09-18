@@ -20,8 +20,8 @@ public class ExpressionRebuildVisitor implements ExpressionVisitor<Expression> {
     }
 
     @Override
-    public Expression visit(FunctionExpression functionExpression) {
-        functionExpression.getParameters().replaceAll(expression -> expression.accept(this));
-        return functionExpression;
+    public Expression visit(FunctionExpression function) {
+        function.getParameters().replaceAll(expression -> expression.accept(this));
+        return function;
     }
 }

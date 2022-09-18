@@ -10,15 +10,15 @@ public class CalculateExpressionVisitor implements ExpressionVisitor<Double> {
     private double x;
 
     @Override
-    public Double visit(BinaryExpression binaryExpression) {
-        if (binaryExpression.getLeft() == null || binaryExpression.getOperator() == null || binaryExpression.getRight() == null)
+    public Double visit(BinaryExpression binary) {
+        if (binary.getLeft() == null || binary.getOperator() == null || binary.getRight() == null)
             return null;
-        return binaryExpression.getOperator().calculate(binaryExpression.getLeft().accept(this), binaryExpression.getRight().accept(this));
+        return binary.getOperator().calculate(binary.getLeft().accept(this), binary.getRight().accept(this));
     }
 
     @Override
-    public Double visit(NumberExpression numberExpression) {
-        return numberExpression.getValue().doubleValue();
+    public Double visit(NumberExpression number) {
+        return number.getValue().doubleValue();
     }
 
     @Override
@@ -27,11 +27,11 @@ public class CalculateExpressionVisitor implements ExpressionVisitor<Double> {
     }
 
     @Override
-    public Double visit(FunctionExpression functionExpression) {
-        double[] x = new double[functionExpression.getParameters().size()];
+    public Double visit(FunctionExpression function) {
+        double[] x = new double[function.getParameters().size()];
         for (int i = 0; i < x.length; i++)
-            x[i] = functionExpression.getParameters().get(i).accept(this);
+            x[i] = function.getParameters().get(i).accept(this);
 
-        return functionExpression.getType().calculate(x);
+        return function.getType().calculate(x);
     }
 }

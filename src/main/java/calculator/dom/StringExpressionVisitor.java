@@ -24,15 +24,20 @@ public class StringExpressionVisitor implements ExpressionVisitor<String> {
         String leftstr = binaryExpression.getLeft().accept(this);
         String rightstr = binaryExpression.getRight().accept(this);
 
-        if (left != null && left.getOperator() != null
-                && left.getOperator().getPriority() < binaryExpression.getOperator().getPriority())
-            leftstr = "(" + leftstr + ")";
+        int priority = binaryExpression.getOperator().getPriority();
 
+        if (left != null && left.getOperator() != null
+                && left.getOperator().getPriority() < priority) {
+
+            leftstr = "(" + leftstr + ")";
+        }
         if (right != null && right.getOperator() != null
-                && (right.getOperator().getPriority() < binaryExpression.getOperator().getPriority()
-                || (right.getOperator().getPriority() == binaryExpression.getOperator().getPriority()
-                && !binaryExpression.getOperator().isCommutative())))
+                && (right.getOperator().getPriority() < priority
+                || (right.getOperator().getPriority() == priority
+                && !binaryExpression.getOperator().isCommutative()))) {
+
             rightstr = "(" + rightstr + ")";
+        }
 
         return (leftstr + " " + binaryExpression.getOperator() + " " + rightstr);
     }

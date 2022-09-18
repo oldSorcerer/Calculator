@@ -7,6 +7,7 @@ import calculator.parser.alternative.ParametersAlternative;
 import calculator.parser.alternative.RootAlternative;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ParametersSequence extends Sequence {
@@ -30,10 +31,12 @@ public class ParametersSequence extends Sequence {
 //        return result;
 
         if (results[2] instanceof Expression expression) {
+
             List<Expression> list = new ArrayList<>();
             list.add((Expression) results[0]);
             list.add(expression);
             return list;
+//            return new ArrayList<>(Arrays.asList((Expression) results[0], expression));
 
 //            return Arrays.asList((Expression) results[0], expression);
         } else if (results[2].getClass().equals(ArrayList.class)) {

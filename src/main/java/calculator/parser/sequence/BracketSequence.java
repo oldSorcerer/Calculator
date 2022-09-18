@@ -8,7 +8,7 @@ import calculator.parser.alternative.RootAlternative;
 
 public class BracketSequence extends Sequence {
 
-    public BracketSequence(RootAlternative root) {
+    public BracketSequence(RootAlternative root) { //(x + y)
         getMembers().add(new Terminal(LexemeType.OpenBracket));
         getMembers().add(root);
         getMembers().add(new Terminal(LexemeType.CloseBracket));

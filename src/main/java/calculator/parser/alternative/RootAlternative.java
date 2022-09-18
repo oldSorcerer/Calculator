@@ -12,11 +12,11 @@ public class RootAlternative extends Alternative {
 
     public RootAlternative(boolean isLeft, RootAlternative root) {
         if (!isLeft)
-            getAlternatives().add(new BinarySequence(this));
-        getAlternatives().add(new DoubleSequence());
-        getAlternatives().add(new IntegerTerminal());
-        getAlternatives().add(new XTerminal());
-        getAlternatives().add(new BracketSequence(isLeft && root != null ? root : this));
-        getAlternatives().add(new FunctionSequence(root != null ? root : this));
+            getAlternatives().add(new BinarySequence(this)); // a + c
+        getAlternatives().add(new DoubleSequence()); //3.14
+        getAlternatives().add(new IntegerTerminal()); //55444
+        getAlternatives().add(new XTerminal()); // x
+        getAlternatives().add(new BracketSequence(isLeft && root != null ? root : this)); // ( что-то )
+        getAlternatives().add(new FunctionSequence(root != null ? root : this)); // sin()
     }
 }

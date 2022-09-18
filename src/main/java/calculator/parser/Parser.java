@@ -37,7 +37,7 @@ public class Parser {
             int i = 0;
             for (Integer x : position)
                 pos2[i++] = x;
-            throw new ParserException("Неверный символ в выражении!", pos2);
+            throw new ParserException("Invalid character in expression!", pos2);
         }
     }
 

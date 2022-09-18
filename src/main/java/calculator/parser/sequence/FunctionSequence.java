@@ -17,13 +17,13 @@ import java.util.List;
 public class FunctionSequence extends Sequence {
 
     public FunctionSequence(RootAlternative root) {
-        getMembers().add(new Terminal(LexemeType.NameFunc));
-        getMembers().add(new Terminal(LexemeType.OpenBracket));
+        getMembers().add(new Terminal(LexemeType.NameFunc)); //0
+        getMembers().add(new Terminal(LexemeType.OpenBracket)); // 1 (
         Alternative parameters = new Alternative();
-        parameters.getAlternatives().add(new ParametersAlternative(root));
-        parameters.getAlternatives().add(new EmptySequence());
-        getMembers().add(parameters);
-        getMembers().add(new Terminal(LexemeType.CloseBracket));
+        parameters.getAlternatives().add(new ParametersAlternative(root)); // name(a, b, c)
+        parameters.getAlternatives().add(new EmptySequence()); // name()
+        getMembers().add(parameters); //2
+        getMembers().add(new Terminal(LexemeType.CloseBracket)); //3 )
     }
 
     @Override
