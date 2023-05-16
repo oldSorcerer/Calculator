@@ -74,4 +74,15 @@ class ParserTest {
     void Pi() {
         check("pi()");
     }
+
+    @Test
+    void If() {
+        check("if(2 * 2 = 5, 3 + 7, 4 * 8)");
+    }
+
+    @Test
+    void If2() {
+        check("if(5 > 2 + 2)");
+    }
+
 }

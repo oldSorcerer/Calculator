@@ -1,4 +1,6 @@
-package calculator.dom;
+package calculator.dom.processing;
+
+import calculator.dom.*;
 
 import java.util.ArrayList;
 
@@ -7,7 +9,7 @@ public class StringExpressionVisitor implements ExpressionVisitor<String> {
     @Override
     public String visit(BinaryExpression binaryExpression) {
 
-        if (binaryExpression.getLeft() == null || binaryExpression.getOperator() == null || binaryExpression.getRight() == null)
+        if (binaryExpression.isEmpty())
             return "";
 
         BinaryExpression left = null;
@@ -40,6 +42,17 @@ public class StringExpressionVisitor implements ExpressionVisitor<String> {
         }
 
         return (leftstr + " " + binaryExpression.getOperator() + " " + rightstr);
+    }
+
+    @Override
+    public String visit(BooleanExpression booleanExpression) {
+        if (booleanExpression.isEmpty())
+            return "";
+
+        String left = booleanExpression.getLeft().accept(this);
+        String right = booleanExpression.getRight().accept(this);
+
+        return left + " " + booleanExpression.getOperator() + " " + right;
     }
 
     @Override

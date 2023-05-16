@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LexerTest {
     @Test
-    void singleInt(){
+    void singleInt() {
         List<Lexeme> lexes = Lexer.run("38");
 
         assertEquals(1, lexes.size());
@@ -17,7 +17,7 @@ class LexerTest {
     }
 
     @Test
-    void singleFloat(){
+    void singleFloat() {
         List<Lexeme> lexes = Lexer.run("18.3");
 
         assertEquals(3, lexes.size());
@@ -29,7 +29,7 @@ class LexerTest {
     }
 
     @Test
-    void numberError(){
+    void numberError() {
         List<Lexeme> lexes = Lexer.run("18.3zz33");
 
         assertEquals(6, lexes.size());
@@ -40,7 +40,7 @@ class LexerTest {
     }
 
     @Test
-    void space(){
+    void space() {
         List<Lexeme> lexes = Lexer.run("18  + 4");
 
         assertEquals(5, lexes.size());
@@ -54,8 +54,8 @@ class LexerTest {
     }
 
     @Test
-    void bracket (){
-        List<Lexeme> lexes = Lexer.run ("15*@(19.8-3.3)");
+    void bracket() {
+        List<Lexeme> lexes = Lexer.run("15*@(19.8-3.3)");
 
         assertEquals(12, lexes.size());
         assertEquals("15", lexes.get(0).getText());
@@ -77,9 +77,10 @@ class LexerTest {
         assertEquals(LexemeType.CloseBracket, lexes.get(11).getType());
 
     }
+
     @Test
-    void X(){
-        List<Lexeme> lexes = Lexer.run ("x * x");
+    void X() {
+        List<Lexeme> lexes = Lexer.run("x * x");
 
         assertEquals(5, lexes.size());
         assertEquals(LexemeType.X, lexes.get(0).getType());
@@ -90,12 +91,12 @@ class LexerTest {
     }
 
     @Test
-    void Fun(){
+    void Fun() {
         List<Lexeme> lexes = Lexer.run("sin(x) + cos(x)");
 
-        assertEquals(11,lexes.size());
+        assertEquals(11, lexes.size());
         assertEquals(LexemeType.NameFunc, lexes.get(0).getType());
-        assertEquals("sin",lexes.get(0).getText());
+        assertEquals("sin", lexes.get(0).getText());
         assertEquals(LexemeType.OpenBracket, lexes.get(1).getType());
         assertEquals(LexemeType.X, lexes.get(2).getType());
         assertEquals(LexemeType.CloseBracket, lexes.get(3).getType());
@@ -103,10 +104,39 @@ class LexerTest {
         assertEquals(LexemeType.Operator, lexes.get(5).getType());
         assertEquals(LexemeType.Space, lexes.get(6).getType());
         assertEquals(LexemeType.NameFunc, lexes.get(7).getType());
-        assertEquals("cos",lexes.get(7).getText());
+        assertEquals("cos", lexes.get(7).getText());
         assertEquals(LexemeType.OpenBracket, lexes.get(8).getType());
         assertEquals(LexemeType.X, lexes.get(9).getType());
         assertEquals(LexemeType.CloseBracket, lexes.get(10).getType());
 
     }
+
+    @Test
+    void If() {
+        List<Lexeme> lexes = Lexer.run("if(2 * 2 = 5, 3 + 7, 4 * 8)");
+
+        assertEquals(26, lexes.size());
+        assertEquals(LexemeType.NameFunc, lexes.get(0).getType());
+        assertEquals("if", lexes.get(0).getText());
+        assertEquals(LexemeType.OpenBracket, lexes.get(1).getType());
+        assertEquals(LexemeType.Digits, lexes.get(2).getType());
+        assertEquals(LexemeType.Space, lexes.get(3).getType());
+        assertEquals(LexemeType.Operator, lexes.get(4).getType());
+        assertEquals(LexemeType.Space, lexes.get(5).getType());
+        assertEquals(LexemeType.Digits, lexes.get(6).getType());
+        assertEquals(LexemeType.Space, lexes.get(7).getType());
+        assertEquals(LexemeType.CompareOperator, lexes.get(8).getType());
+        assertEquals("=", lexes.get(8).getText());
+        assertEquals(LexemeType.Space, lexes.get(9).getType());
+        assertEquals(LexemeType.Digits, lexes.get(10).getType());
+        assertEquals(LexemeType.Comma, lexes.get(11).getType());
+
+
+// доделать
+
+
+        assertEquals(LexemeType.CloseBracket, lexes.get(25).getType());
+
+    }
+
 }

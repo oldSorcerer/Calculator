@@ -61,9 +61,18 @@ public class Lexer {
 
                         @Override
                         public int getSymbolCount(String text) {
-                            if (BinaryOperator.fromChar(text.charAt(0)) != null)
-                                return 1;
-                            else return 0;
+                            return BinaryOperator.fromChar(text.charAt(0)) != null ? 1 : 0;
+                        }
+                    },
+                    new LexemeRule() {
+                        @Override
+                        public LexemeType getType() {
+                            return LexemeType.CompareOperator;
+                        }
+
+                        @Override
+                        public int getSymbolCount(String text) {
+                            return BooleanOperator.fromChar(text.charAt(0)) != null ? 1 : 0;
                         }
                     },
                     new LexemeRule() {

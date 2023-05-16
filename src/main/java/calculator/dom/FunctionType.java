@@ -12,7 +12,8 @@ public enum FunctionType {
     Exp(x -> exp(x[0])),
     Abs(x -> abs(x[0])),
     Pi(x -> PI),
-    E(x -> Math.E);
+    E(x -> Math.E),
+    If(x -> x[0] != 0 ? x[1] : x[2]);
 
     private final Function<double[], Double> calc;
 

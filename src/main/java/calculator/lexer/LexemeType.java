@@ -5,6 +5,7 @@ public enum LexemeType {
     Dot,
     Space,
     Operator,
+    CompareOperator,
     OpenBracket,
     CloseBracket,
     X,

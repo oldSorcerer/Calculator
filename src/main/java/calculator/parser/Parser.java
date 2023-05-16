@@ -1,7 +1,7 @@
 package calculator.parser;
 
 import calculator.dom.Expression;
-import calculator.dom.ExpressionRebuildVisitor;
+import calculator.dom.processing.ExpressionRebuildVisitor;
 import calculator.lexer.Lexeme;
 import calculator.lexer.LexemeType;
 import calculator.parser.alternative.Alternative;

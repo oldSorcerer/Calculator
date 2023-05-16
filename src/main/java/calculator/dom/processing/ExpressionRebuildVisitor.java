@@ -1,4 +1,6 @@
-package calculator.dom;
+package calculator.dom.processing;
+
+import calculator.dom.*;
 
 public class ExpressionRebuildVisitor implements ExpressionVisitor<Expression> {
 
@@ -7,6 +9,13 @@ public class ExpressionRebuildVisitor implements ExpressionVisitor<Expression> {
         binaryExpression.setLeft(binaryExpression.getLeft().accept(this));
         binaryExpression.setRight(binaryExpression.getRight().accept(this));
         return binaryExpression;
+    }
+
+    @Override
+    public Expression visit(BooleanExpression booleanExpression) {
+        booleanExpression.setLeft(booleanExpression.getLeft().accept(this));
+        booleanExpression.setRight(booleanExpression.getRight().accept(this));
+        return booleanExpression;
     }
 
     @Override

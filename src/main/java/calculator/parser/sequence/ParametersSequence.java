@@ -2,6 +2,7 @@ package calculator.parser.sequence;
 
 import calculator.dom.Expression;
 import calculator.lexer.LexemeType;
+import calculator.parser.alternative.Alternative;
 import calculator.parser.terminal.Terminal;
 import calculator.parser.alternative.ParametersAlternative;
 import calculator.parser.alternative.RootAlternative;
@@ -13,7 +14,10 @@ import java.util.List;
 public class ParametersSequence extends Sequence {
 
     public ParametersSequence(RootAlternative root, ParametersAlternative tail) {
-        getMembers().add(root);
+        Alternative parameters = new Alternative();
+        parameters.getAlternatives().add(new BooleanSequence(root)); // if(a > b)
+        parameters.getAlternatives().add(root);
+        getMembers().add(parameters);
         getMembers().add(new Terminal(LexemeType.Comma));
         getMembers().add(tail);
     }

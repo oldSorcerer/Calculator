@@ -11,8 +11,9 @@ public class RootAlternative extends Alternative {
     }
 
     public RootAlternative(boolean isLeft, RootAlternative root) {
-        if (!isLeft)
+        if (!isLeft) {
             getAlternatives().add(new BinarySequence(this)); // a + c
+        }
         getAlternatives().add(new DoubleSequence()); //3.14
         getAlternatives().add(new IntegerTerminal()); //55444
         getAlternatives().add(new XTerminal()); // x

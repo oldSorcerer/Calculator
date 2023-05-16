@@ -5,11 +5,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class BinaryExpression extends Expression {
+public class BooleanExpression extends Expression {
 
     private Expression left;
     private Expression right;
-    private BinaryOperator operator;
+    private BooleanOperator operator;
 
     @Override
     public <T> T accept(ExpressionVisitor<T> visitor) {
